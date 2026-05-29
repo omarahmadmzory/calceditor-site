@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CalcEditor — The Scientific Math Editor</title>
-  <meta name="description" content="CalcEditor is an educational scientific calculator for Android. Local-only. No tracking. No accounts.">
+  <title>CalcEditor — محرّر الرياضيات العلمي</title>
+  <meta name="description" content="تطبيق CalcEditor هو حاسبة علمية تعليمية لأجهزة أندرويد. تعمل بالكامل محلياً على الجهاز. لا تتبع. لا إعلانات.">
   <meta name="robots" content="index, follow">
   <script>
     // Flicker-Free Theme Restoration
@@ -17,27 +17,19 @@
       }
     })();
 
-    // Non-Looping Language Routing
+    // Non-Looping Language Routing (Arabic Sibling)
     (function() {
       const params = new URLSearchParams(window.location.search);
-      if (params.get('lang') === 'en') {
-        localStorage.setItem('lang_explicit', 'en');
+      if (params.get('lang') === 'ar') {
+        localStorage.setItem('lang_explicit', 'ar');
         return;
       }
       
       const explicit = localStorage.getItem('lang_explicit');
-      if (explicit === 'en') return;
-      if (explicit === 'ar') {
-        window.location.replace('index_ar.html');
+      if (explicit === 'ar') return;
+      if (explicit === 'en') {
+        window.location.replace('index.html');
         return;
-      }
-      
-      const isArabic = navigator.languages ? 
-        navigator.languages.some(l => l.toLowerCase().startsWith('ar')) : 
-        (navigator.language && navigator.language.toLowerCase().startsWith('ar'));
-        
-      if (isArabic) {
-        window.location.replace('index_ar.html');
       }
     })();
   </script>
@@ -118,7 +110,7 @@
     html { scroll-behavior: smooth; overflow-y: scroll; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
                    "Helvetica Neue", Arial, sans-serif;
       font-size: 16px;
       line-height: 1.6;
@@ -214,7 +206,7 @@
     .hero h1 {
       font-size: clamp(2rem, 5vw, 3rem);
       font-weight: 800;
-      line-height: 1.15;
+      line-height: 1.25;
       letter-spacing: -0.5px;
       margin-bottom: 12px;
     }
@@ -581,17 +573,17 @@
 <!-- ── Navigation ─────────────────────────────────────────── -->
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">Calc<span>Editor</span></a>
+    <a href="index_ar.html" class="nav-logo">Calc<span>Editor</span></a>
     <div class="nav-links">
-      <a href="#features">Features</a>
-      <a href="#privacy">Privacy</a>
-      <a href="mailto:Omarahmadmzory@gmail.com">Contact</a>
-      <a href="index_ar.html?lang=ar" style="color:var(--purple-light); font-weight:600;">العربية</a>
+      <a href="#features">المزايا</a>
+      <a href="#privacy">الخصوصية</a>
+      <a href="mailto:Omarahmadmzory@gmail.com">اتصل بنا</a>
+      <a href="index.html?lang=en" style="color:var(--purple-light); font-weight:600;">English</a>
       <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
         <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
-      <a href="privacy-policy/index.html" class="nav-cta">Privacy Policy</a>
+      <a href="privacy-policy/index_ar.html" class="nav-cta">سياسة الخصوصية</a>
     </div>
   </div>
 </nav>
@@ -599,26 +591,24 @@
 <!-- ── Hero ───────────────────────────────────────────────── -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-badge">Android App &nbsp;·&nbsp; Closed Beta Coming Soon</div>
+    <div class="hero-badge">تطبيق أندرويد &nbsp;·&nbsp; النسخة التجريبية المغلقة قريباً</div>
 
-    <h1>The <em>Scientific</em><br>Math Editor</h1>
+    <h1>محرّر الرياضيات<br><em>العلمي</em></h1>
 
-    <p class="hero-tagline">CalcEditor — powerful scientific calculator for Android</p>
+    <p class="hero-tagline">CalcEditor — حاسبة علمية قوية لأجهزة أندرويد</p>
 
     <p class="hero-desc">
-      A full-featured educational scientific calculator with a clean math editor,
-      customizable themes, calculation history, and selected science &amp; statistics tools.
-      No accounts. No tracking. Everything stays on your device.
+      حاسبة علمية تعليمية متكاملة الميزات مع محرّر رياضيات بصري نظيف، سمات مخصصة، سجل حسابات، وأدوات علمية وإحصائية مختارة. بدون حسابات. بدون تتبع. كل شيء يبقى على جهازك.
     </p>
 
     <div class="hero-actions">
       <a href="#beta-modal" class="btn-primary">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-        Get Early Access
+        احصل على وصول مبكر
       </a>
       <a href="#features" class="btn-secondary">
-        Explore Features
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        استكشف المزايا
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="transform: scaleX(-1);"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
     </div>
   </div>
@@ -629,23 +619,23 @@
   <div class="trust-inner">
     <div class="trust-item">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-      No data collected
+      لا يتم جمع أي بيانات
     </div>
     <div class="trust-item">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      No tracking
+      بدون تتبع
     </div>
     <div class="trust-item">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-      Works offline
+      يعمل دون اتصال
     </div>
     <div class="trust-item">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      No account required
+      لا يتطلب حساباً
     </div>
     <div class="trust-item">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
-      Android
+      أندرويد
     </div>
   </div>
 </div>
@@ -653,9 +643,9 @@
 <!-- ── Features ───────────────────────────────────────────── -->
 <section class="features" id="features">
   <div class="section-inner">
-    <p class="section-label">What&rsquo;s inside</p>
-    <h2 class="section-title">Everything you need to calculate</h2>
-    <p class="section-sub">From basic arithmetic to scientific functions and selected engineering tools — in one clean, focused app.</p>
+    <p class="section-label">ما الذي يحتويه التطبيق</p>
+    <h2 class="section-title">كل ما تحتاجه لإجراء الحسابات</h2>
+    <p class="section-sub">من العمليات الحسابية الأساسية إلى الدوال العلمية والأدوات الهندسية المختارة — في تطبيق واحد نظيف ومركّز.</p>
 
     <div class="features-grid">
 
@@ -663,48 +653,48 @@
         <div class="feature-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="12" y1="10" x2="14" y2="10"/><line x1="16" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="12" y1="14" x2="14" y2="14"/><line x1="16" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="10" y2="18"/><line x1="12" y1="18" x2="14" y2="18"/></svg>
         </div>
-        <div class="feature-title">Scientific Calculator</div>
-        <div class="feature-desc">sin, cos, tan, log, ln, powers, roots, factorial — with a structured visual math editor that shows expressions clearly.</div>
+        <div class="feature-title">حاسبة علمية</div>
+        <div class="feature-desc">حساب الجيب (sin)، الجيب تمام (cos)، الظل (tan)، اللوغاريتمات، القوى، الجذور، المضروب — مع محرّر رياضيات بصري منظّم يعرض التعبيرات بوضوح.</div>
       </div>
 
       <div class="feature-card">
         <div class="feature-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
-        <div class="feature-title">Calculation History</div>
-        <div class="feature-desc">Every calculation is saved locally. Browse, recall, and reuse past expressions — all stored privately on your device.</div>
+        <div class="feature-title">سجل الحسابات</div>
+        <div class="feature-desc">يتم حفظ كل عملية حسابية محلياً. تصفح التعبيرات السابقة واسترجعها وأعد استخدامها — كلها مخزنة بخصوصية وأمان على جهازك.</div>
       </div>
 
       <div class="feature-card">
         <div class="feature-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="3.5" fill="currentColor" stroke="none" opacity="0.4"/><circle cx="19.5" cy="14.5" r="3.5" fill="currentColor" stroke="none" opacity="0.6"/><circle cx="6.5" cy="16.5" r="3.5" fill="currentColor" stroke="none" opacity="0.8"/></svg>
         </div>
-        <div class="feature-title">5 Customizable Themes</div>
-        <div class="feature-desc">Choose from Domino, Graphite, Midnight, Porcelain, and Sandstone. Every surface adapts cleanly across all themes.</div>
+        <div class="feature-title">٥ سمات قابلة للتخصيص</div>
+        <div class="feature-desc">اختر من بين دومينو، وجرافيت، وميدنايت، وبورسلين، وساندستون. كل واجهة تتكيف بنظافة وسلاسة عبر جميع السمات.</div>
       </div>
 
       <div class="feature-card">
         <div class="feature-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
         </div>
-        <div class="feature-title">Health &amp; Science Tools</div>
-        <div class="feature-desc">BMI and BMR calculators, unit conversion, area calculations, and selected statistics tools — for study and everyday use.</div>
+        <div class="feature-title">أدوات الصحة والعلوم</div>
+        <div class="feature-desc">حاسبات مؤشر كتلة الجسم (BMI) ومعدل الأيض الأساسي (BMR)، وتحويل الوحدات، وحسابات المساحة، وأدوات إحصائية مختارة — للدراسة والاستخدام اليومي.</div>
       </div>
 
       <div class="feature-card">
         <div class="feature-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
         </div>
-        <div class="feature-title">Local Text Recognition</div>
-        <div class="feature-desc">Point your camera at a handwritten or printed expression and import it directly into the editor. Processed entirely on-device — nothing is uploaded.</div>
+        <div class="feature-title">التعرف المحلي على النصوص</div>
+        <div class="feature-desc">وجه كاميرتك نحو تعبير رياضي مكتوب بخط اليد أو مطبوع واستورده مباشرة إلى المحرّر. تتم المعالجة بالكامل على الجهاز — لا يتم رفع أي شيء للإنترنت.</div>
       </div>
 
       <div class="feature-card">
         <div class="feature-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
         </div>
-        <div class="feature-title">Statistics &amp; Probability</div>
-        <div class="feature-desc">Descriptive statistics, one-sample t-test, sample size estimation, and more — for coursework and data review.</div>
+        <div class="feature-title">الإحصاء والاحتمالات</div>
+        <div class="feature-desc">الإحصاء الوصفي، واختبار t لعينة واحدة، وتقدير حجم العينة، والمزيد — للفروض الدراسية ومراجعة وتحليل البيانات.</div>
       </div>
 
     </div>
@@ -714,23 +704,23 @@
 <!-- ── Privacy ─────────────────────────────────────────────── -->
 <section class="privacy-section" id="privacy">
   <div class="privacy-inner">
-    <h2>Private by design</h2>
+    <h2>مصمم ليكون خاصاً</h2>
     <p>
-      CalcEditor stores everything locally on your device.
-      No accounts. No cloud sync. No analytics. No ads.
-      Your calculations, history, and health data stay with you.
+      يحفظ CalcEditor كل شيء محلياً على جهازك.
+      بدون حسابات. بدون مزامنة سحابية. بدون تحليلات. بدون إعلانات.
+      حساباتك، وسجل عملياتك، وبياناتك الصحية تبقى معك بأمان تام.
     </p>
     <div class="privacy-chips">
-      <span class="chip">No data collected</span>
-      <span class="chip">No accounts</span>
-      <span class="chip">No analytics</span>
-      <span class="chip">No ads</span>
-      <span class="chip">No cloud OCR</span>
-      <span class="chip">Works offline</span>
-      <span class="chip">Local history only</span>
+      <span class="chip">لا يتم جمع أي بيانات</span>
+      <span class="chip">لا يتطلب حساباً</span>
+      <span class="chip">بدون تحليلات</span>
+      <span class="chip">بدون إعلانات</span>
+      <span class="chip">بدون معالجة سحابية</span>
+      <span class="chip">يعمل دون اتصال بالإنترنت</span>
+      <span class="chip">سجل محلي فقط</span>
     </div>
     <p style="margin-top:28px; font-size:0.82rem; color:rgba(255,255,255,0.4);">
-      <a href="privacy-policy/index.html" style="color:rgba(167,139,250,0.85);">Read the full privacy policy &rarr;</a>
+      <a href="privacy-policy/index_ar.html" style="color:rgba(167,139,250,0.85);">اقرأ سياسة الخصوصية الكاملة &larr;</a>
     </p>
   </div>
 </section>
@@ -738,23 +728,22 @@
 <!-- ── Beta CTA ────────────────────────────────────────────── -->
 <section class="beta-section" id="beta">
   <div class="beta-inner">
-    <div class="soon-tag">Closed Beta</div>
-    <h2>Coming to Google Play</h2>
+    <div class="soon-tag">النسخة التجريبية المغلقة</div>
+    <h2>قريباً على متجر Google Play</h2>
     <p>
-      CalcEditor v1.0 is completing its closed beta phase and will be
-      available on Google Play soon. Educational use. Free to download.
+      يكمل تطبيق CalcEditor الإصدار الأول مرحلته التجريبية المغلقة وسيكون متاحاً على متجر Google Play قريباً. للاستخدام التعليمي ومجاني للتحميل.
     </p>
     <a href="#beta-modal" class="play-badge-link">
       <div class="play-badge">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M3 20.5v-17c0-.83 1-.83 1.5-.5l14 8.5-14 8.5c-.5.33-1.5.33-1.5-.5z" opacity="0.7"/></svg>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="transform: scaleX(-1);"><path d="M3 20.5v-17c0-.83 1-.83 1.5-.5l14 8.5-14 8.5c-.5.33-1.5.33-1.5-.5z" opacity="0.7"/></svg>
         <div>
-          <span class="play-badge-sub">Coming soon on</span>
+          <span class="play-badge-sub">قريباً على</span>
           Google Play
         </div>
       </div>
     </a>
     <p style="margin-top: 20px; font-size: 0.8rem; color: var(--gray-500);">
-      Questions? <a href="mailto:Omarahmadmzory@gmail.com">Omarahmadmzory@gmail.com</a>
+      لديك أسئلة؟ <a href="mailto:Omarahmadmzory@gmail.com">Omarahmadmzory@gmail.com</a>
     </p>
   </div>
 </section>
@@ -763,12 +752,12 @@
 <footer>
   <div class="footer-inner">
     <div>
-      <div class="footer-brand">Calc<span>Editor</span> &nbsp;&mdash;&nbsp; The Scientific Math Editor</div>
-      <div class="footer-copy">&copy; 2026 Omar A. Kurdi (O.A.Kurdi). All rights reserved.</div>
+      <div class="footer-brand">Calc<span>Editor</span> &nbsp;&mdash;&nbsp; محرّر الرياضيات العلمي</div>
+      <div class="footer-copy">&copy; ٢٠٢٦ عمر أ. الكردي (Omar A. Kurdi). جميع الحقوق محفوظة.</div>
     </div>
     <div class="footer-links">
-      <a href="privacy-policy/index.html">Privacy Policy</a>
-      <a href="mailto:Omarahmadmzory@gmail.com">Contact</a>
+      <a href="privacy-policy/index_ar.html">سياسة الخصوصية</a>
+      <a href="mailto:Omarahmadmzory@gmail.com">اتصل بنا</a>
     </div>
   </div>
 </footer>
@@ -776,15 +765,15 @@
 <!-- ── Closed Beta Info CSS-based Modal ── -->
 <div id="beta-modal" class="modal">
   <div class="modal-content">
-    <h3>Join CalcEditor Closed Beta</h3>
+    <h3>الانضمام إلى النسخة التجريبية المغلقة</h3>
     <p>
-      CalcEditor is currently running a closed beta on Google Play to ensure stability and release readiness.
+      يجري تطبيق CalcEditor حالياً مرحلة تجريبية مغلقة على متجر Google Play لضمان الاستقرار وجاهزية الإطلاق.
     </p>
-    <p style="text-align: left; font-size: 0.85rem; background: rgba(255,255,255,0.05); padding: 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1);">
-      <strong>How to get early access:</strong><br>
-      Please email us at <a href="mailto:Omarahmadmzory@gmail.com" style="color:var(--purple-light);">Omarahmadmzory@gmail.com</a> with the subject "CalcEditor Closed Beta". Please include the Google account email address you use on your Android device. Once added to the testers list, you will receive a direct Play Store link to download the app.
+    <p style="text-align: right; font-size: 0.85rem; background: rgba(255,255,255,0.05); padding: 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1);">
+      <strong>كيفية الحصول على وصول مبكر:</strong><br>
+      يرجى مراسلتنا عبر البريد الإلكتروني على <a href="mailto:Omarahmadmzory@gmail.com" style="color:var(--purple-light);">Omarahmadmzory@gmail.com</a> بموضوع "CalcEditor Closed Beta". يرجى تضمين عنوان بريد حساب Google الذي تستخدمه على جهاز أندرويد الخاص بك. بمجرد إضافتك إلى قائمة المختبرين، ستتلقى رابطاً مباشراً من متجر Play لتحميل التطبيق.
     </p>
-    <a href="#" class="modal-close">Close</a>
+    <a href="#" class="modal-close">إغلاق</a>
   </div>
 </div>
 

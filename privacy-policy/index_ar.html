@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CalcEditor — سياسة الخصوصية</title>
+  <meta name="description" content="سياسة الخصوصية لتطبيق CalcEditor، حاسبة الرياضيات العلمية التعليمية من عمر أ. الكردي.">
+  <script>
+    // Flicker-Free Theme Restoration
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark-theme');
+      } else if (savedTheme === 'light') {
+        document.documentElement.classList.add('light-theme');
+      }
+    })();
+
+    // Non-Looping Language Routing (Arabic Sibling Privacy Policy)
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('lang') === 'ar') {
+        localStorage.setItem('lang_explicit', 'ar');
+        return;
+      }
+      
+      const explicit = localStorage.getItem('lang_explicit');
+      if (explicit === 'ar') return;
+      if (explicit === 'en') {
+        window.location.replace('index.html');
+        return;
+      }
+    })();
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white: #ffffff;
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --title: #0a0a0a;
+      --h2: #111111;
+      --h3: #222222;
+      --meta: #555555;
+      --border: #e5e5e5;
+      --table-border: #dddddd;
+      --table-header-bg: #f5f5f5;
+      --table-even-bg: #fafafa;
+      --summary-bg: #f0f7ff;
+      --summary-border: #1a56db;
+      --purple: #7c3aed;
+      --purple-light: #a78bfa;
+      --navy: #0f172a;
+      --navy2: #1e293b;
+      --radius: 12px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not(.light-theme) {
+        --white: #ffffff;
+        --bg: #13111c;
+        --text: #e2e0eb;
+        --title: #f3f0ff;
+        --h2: #e2e0eb;
+        --h3: #c5c2d6;
+        --meta: #9994b0;
+        --border: #252036;
+        --table-border: #252036;
+        --table-header-bg: #1b1828;
+        --table-even-bg: #171422;
+        --summary-bg: #211d33;
+        --summary-border: #7c3aed;
+      }
+    }
+
+    :root.dark-theme {
+      --white: #ffffff;
+      --bg: #13111c;
+      --text: #e2e0eb;
+      --title: #f3f0ff;
+      --h2: #e2e0eb;
+      --h3: #c5c2d6;
+      --meta: #9994b0;
+      --border: #252036;
+      --table-border: #252036;
+      --table-header-bg: #1b1828;
+      --table-even-bg: #171422;
+      --summary-bg: #211d33;
+      --summary-border: #7c3aed;
+    }
+
+    /* ── Theme Toggle Button Styling ── */
+    .theme-toggle-btn {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.7);
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.15s, background-color 0.15s;
+    }
+    .theme-toggle-btn:hover {
+      color: var(--white);
+      background-color: rgba(255,255,255,0.1);
+    }
+    .sun-icon { display: none; }
+    .moon-icon { display: block; }
+    
+    :root.dark-theme .sun-icon { display: block; }
+    :root.dark-theme .moon-icon { display: none; }
+    
+    @media (prefers-color-scheme: dark) {
+      :root:not(.light-theme) .sun-icon { display: block; }
+      :root:not(.light-theme) .moon-icon { display: none; }
+    }
+
+    html { scroll-behavior: smooth; overflow-y: scroll; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                   "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
+      padding: 0;
+    }
+
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 16px 80px;
+    }
+
+    /* ── Nav ─────────────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15, 23, 42, 0.96);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    .nav-logo {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.3px;
+      text-decoration: none;
+    }
+    .nav-logo span { color: #a78bfa; }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.15s;
+      text-decoration: none;
+    }
+    .nav-links a:hover { color: #ffffff; text-decoration: none; }
+    .nav-cta {
+      display: inline-block;
+      min-width: 130px;
+      text-align: center;
+      background: #7c3aed;
+      color: #ffffff !important;
+      padding: 7px 16px;
+      border-radius: 8px;
+      font-weight: 600 !important;
+      font-size: 0.8rem !important;
+      letter-spacing: 0.2px;
+      text-decoration: none;
+    }
+    .nav-cta:hover { background: #6d28d9 !important; }
+
+    header {
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+    }
+
+    header h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--title);
+      margin-bottom: 8px;
+    }
+
+    header .meta {
+      font-size: 0.875rem;
+      color: var(--meta);
+    }
+
+    header .meta span { display: block; }
+
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--h2);
+      margin: 36px 0 12px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--h3);
+      margin: 20px 0 8px;
+    }
+
+    p { margin-bottom: 12px; }
+
+    ul, ol {
+      padding-right: 24px;
+      margin-bottom: 12px;
+    }
+
+    li { margin-bottom: 6px; }
+
+    strong { font-weight: 600; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 0.9rem;
+    }
+
+    th, td {
+      text-align: right;
+      padding: 10px 12px;
+      border: 1px solid var(--table-border);
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--table-header-bg);
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) td { background: var(--table-even-bg); }
+
+    a { color: #3b82f6; text-decoration: none; }
+    :root.dark-theme a { color: #60a5fa; }
+    @media (prefers-color-scheme: dark) {
+      :root:not(.light-theme) a { color: #60a5fa; }
+    }
+    a:hover { text-decoration: underline; }
+
+    .summary-box {
+      background: var(--summary-bg);
+      border-right: 4px solid var(--summary-border);
+      padding: 14px 18px;
+      border-radius: 6px 0 0 6px;
+      margin: 16px 0 20px;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--meta);
+    }
+
+    @media (max-width: 480px) {
+      body { font-size: 15px; }
+      header h1 { font-size: 1.4rem; }
+      table { font-size: 0.82rem; }
+      th, td { padding: 8px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ─────────────────────────────────────────── -->
+<nav>
+  <div class="nav-inner">
+    <a href="../index_ar.html" class="nav-logo">Calc<span>Editor</span></a>
+    <div class="nav-links">
+      <a href="../index_ar.html#features">المزايا</a>
+      <a href="../index_ar.html#privacy">الخصوصية</a>
+      <a href="mailto:Omarahmadmzory@gmail.com">اتصل بنا</a>
+      <a href="index.html?lang=en" style="color:var(--purple-light); font-weight:600;">English</a>
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+        <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="../index_ar.html" class="nav-cta">الرئيسية</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page">
+
+  <header>
+    <h1>CalcEditor — سياسة الخصوصية</h1>
+    <div class="meta">
+      <span><strong>التطبيق:</strong> CalcEditor</span>
+      <span><strong>المطور:</strong> عمر أ. الكردي</span>
+      <span><strong>الاتصال:</strong> <a href="mailto:Omarahmadmzory@gmail.com">Omarahmadmzory@gmail.com</a></span>
+      <span><strong>تاريخ السريان:</strong> ١٩-٠٥-٢٠٢٦</span>
+      <span><strong>آخر تحديث:</strong> ١٩-٠٥-٢٠٢٦</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>١. المقدمة</h2>
+    <p>يُعد تطبيق CalcEditor (&ldquo;التطبيق&rdquo; أو &ldquo;نحن&rdquo; أو &ldquo;ضمير المتكلم&rdquo;) تطبيق حاسبة علمية تعليمية لأجهزة أندرويد. توضح سياسة الخصوصية هذه كيفية تعامل تطبيق CalcEditor مع المعلومات والبيانات عند استخدامك للتطبيق.</p>
+    <div class="summary-box">
+      <strong>ملخص:</strong> تم تصميم تطبيق CalcEditor ليعمل محلياً بالكامل على جهازك. نحن لا نجمع، ولا نبيع، ولا نشارك، ولا ننقل أي بيانات شخصية أو نتائج حسابية إلى خوادم خارجية أو أطراف ثالثة.
+    </div>
+  </section>
+
+  <section>
+    <h2>٢. البيانات التي لا نجمعها</h2>
+    <p>تطبيق CalcEditor <strong>لا</strong> يجمع، ولا يخزن عن بُعد، ولا ينقل أياً مما يلي:</p>
+    <ul>
+      <li>اسمك، أو بريدك الإلكتروني، أو رقم هاتفك، أو أي معرّف شخصي.</li>
+      <li>مدخلات حساباتك، أو سجل العمليات، أو النتائج.</li>
+      <li>مؤشر كتلة الجسم (BMI)، أو البيانات الصحية والرياضية التي تدخلها في التطبيق.</li>
+      <li>الصور أو اللقطات التي تختارها لميزة التعرف البصري المحلي على النصوص (OCR).</li>
+      <li>معرّفات الأجهزة، أو معرّفات الإعلانات، أو أحداث التحليل والتتبع.</li>
+      <li>بيانات الموقع الجغرافي (الدقيقة أو التقريبية).</li>
+      <li>جهات الاتصال، أو بيانات التقويم، أو الرسائل، أو سجل التصفح.</li>
+      <li>تقارير الأخطاء البرمجية أو القياسات التشخيصية المرسلة إلى خوادمنا.</li>
+    </ul>
+    <p>لا يتطلب استخدام تطبيق CalcEditor إنشاء أي حساب، حيث لا يحتوي التطبيق على أي نظام لتسجيل الدخول أو التسجيل أو إنشاء الحسابات الشخصية.</p>
+  </section>
+
+  <section>
+    <h2>٣. البيانات المخزنة محلياً على جهازك</h2>
+    <p>يقوم تطبيق CalcEditor بتخزين البيانات التالية <strong>على جهازك فقط</strong>، باستخدام آلية التخزين المحلية القياسية في نظام أندرويد (SharedPreferences):</p>
+    <table>
+      <thead>
+        <tr><th>البيانات</th><th>الهدف</th><th>نوع التخزين</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>سجل الحسابات</td><td>تسهيل مراجعة الحسابات والتعبيرات السابقة</td><td>محلي، على الجهاز فقط</td></tr>
+        <tr><td>إعدادات التطبيق وتفضيلاته</td><td>حفظ السمة المحددة (Theme)، ووضع الزاوية (DEG/RAD)، والإعدادات الأخرى</td><td>محلي، على الجهاز فقط</td></tr>
+        <tr><td>حالة الحاسبة النشطة</td><td>استئناف جلستك الأخيرة عند إعادة فتح التطبيق</td><td>محلي، على الجهاز فقط</td></tr>
+      </tbody>
+    </table>
+    <p>هذه البيانات <strong>لا</strong> يمكننا الوصول إليها بأي شكل ولا يتم إرسالها إلى أي خادم خارجي. ستبقى على جهازك فقط إلى أن تقوم بـ:</p>
+    <ul>
+      <li>مسح بيانات التطبيق (الإعدادات &larr; التطبيقات &larr; CalcEditor &larr; مسح البيانات)، أو</li>
+      <li>إلغاء تثبيت التطبيق بالكامل من جهازك.</li>
+    </ul>
+    <p>نحن لا نوفر أي نسخ احتياطية خارجية، أو مزامنة سحابية، أو تخزين سحابي لهذه البيانات.</p>
+  </section>
+
+  <section>
+    <h2>٤. الوصول إلى الكاميرا ومعرض الصور</h2>
+    <p>قد يطلب تطبيق CalcEditor الإذن بالوصول إلى كاميرا جهازك أو معرض الصور إذا اخترت استخدام <strong>ميزة التعرف البصري المحلي على النصوص (OCR)</strong> لعمل مسح ضوئي لتعبير رياضي مكتوب بخط اليد أو مطبوع.</p>
+    <table>
+      <thead>
+        <tr><th>الحدث</th><th>التفاصيل</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>نطاق الوصول</strong></td><td>بمبادرة وطلب من المستخدم فقط. يجب عليك تشغيل ميزة OCR بشكل نشط واختيار المصدر (الكاميرا أو معرض الصور).</td></tr>
+        <tr><td><strong>المعالجة</strong></td><td>تتم معالجة الصورة المحددة <strong>على جهازك محلياً بالكامل</strong> باستخدام تقنية Google ML Kit ليتعرف على النصوص والرموز.</td></tr>
+        <tr><td><strong>لا رفع للبيانات</strong></td><td>لا يتم رفع الصورة ولا أي نص مستخرج منها إلى خوادم CalcEditor أو أي خدمة سحابية للتعرف البصري في هذا الإصدار.</td></tr>
+        <tr><td><strong>الاحتفاظ بالصور</strong></td><td>لا يحتفظ التطبيق بالصور المحددة بشكل دائم. تُستخدم الصور فقط لجلسة التعرف الفورية وتنتهي فور انتهاء الجلسة.</td></tr>
+        <tr><td><strong>رفض الأذونات</strong></td><td>إذا رفضت منح إذن الوصول للكاميرا أو معرض الصور، ستظل جميع وظائف الحاسبة الأخرى متاحة للعمل بالكامل دون أي قيود.</td></tr>
+      </tbody>
+    </table>
+    <p><strong>ميزة التعرف السحابي (Google Vision / MathPix) غير متاحة في إصدار CalcEditor الأول v1.</strong> لا يتم رفع أي صور إلى خدمات التعرف البصري السحابية في هذا الإصدار.</p>
+  </section>
+
+  <section>
+    <h2>٥. الاتصال بالإنترنت وتحميل نماذج Google ML Kit</h2>
+    <p>يستخدم تطبيق CalcEditor حزمة <strong>Google ML Kit ليتعرف على النصوص على الجهاز</strong>، وهي حزمة برمجية وتطويرية مخصصة للعمل محلياً من Google.</p>
+    <ul>
+      <li>يشتمل التطبيق على إذن <strong>INTERNET</strong>، والذي يُستخدم حصرياً لتمكين حزمة Google ML Kit من <strong>تنزيل وتحديث ملفات نماذج التعرف البصري على الجهاز</strong> عند توفر اتصال بالشبكة.</li>
+      <li><strong>لا يتم إرسال أي بيانات حسابية، أو نصوص تعبيرية، أو صور، أو معلومات شخصية من تطبيق CalcEditor أثناء هذه العملية على الإطلاق.</strong></li>
+      <li>تنزيل النموذج هو عملية خلفية غير متكررة يتم إدارتها بالكامل بواسطة حزمة ML Kit SDK.</li>
+      <li>تطبق سياسات خصوصية Google الخاصة بحزمة ML Kit على عمليات التنزيل والتحديث. يرجى مراجعة <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">سياسة خصوصية Google</a> لمزيد من المعلومات حول ممارسات معالجة البيانات لديهم.</li>
+    </ul>
+    <p>لا يمتلك تطبيق CalcEditor أي خادم خلفي خاص به ولا يرسل أي محتوى للمستخدمين عبر الإنترنت.</p>
+  </section>
+
+  <section>
+    <h2>٦. مستشعرات الحركة والجهاز</h2>
+    <p>قد يستخدم تطبيق CalcEditor مستشعر مقياس التسارع (Accelerometer) في جهازك لبعض الميزات التفاعلية المحلية (مثل الكشف عن اتجاه الشاشة أو التكيف البصري). تتم معالجة بيانات هذا المستشعر <strong>محلياً على جهازك</strong> ولا يتم إرسالها إلينا أو إلى أي جهة خارجية.</p>
+  </section>
+
+  <section>
+    <h2>٧. التحليلات والإعلانات وتقارير الأخطاء</h2>
+    <p>تطبيق CalcEditor <strong>لا يحتوي</strong> على أي حزم للتحليلات الإحصائية، أو حزم إعلانية، أو حزم تتبع سلوكي، أو حزم إرسال تقارير الأخطاء البرمجية التي تقوم بجمع أو إرسال بيانات المستخدمين إلينا أو إلى أطراف خارجية.</p>
+    <p>لا توجد إعلانات، ولا ملفات تعريف سلوكية، ولا تتبع عبر التطبيقات الأخرى، ولا أي عملية لتحقيق الدخل من البيانات.</p>
+    <p>إذا تغير هذا في إصدار مستقبلي، فسيتم تحديث هذه السياسة وإشعار المستخدمين بالتبعية.</p>
+  </section>
+
+  <section>
+    <h2>٨. الخدمات الخارجية</h2>
+    <table>
+      <thead>
+        <tr><th>الخدمة</th><th>الهدف</th><th>البيانات المرسلة من CalcEditor</th><th>ملاحظات</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Google ML Kit Text Recognition</td>
+          <td>نموذج التعرف على النصوص على الجهاز</td>
+          <td>لا يوجد (تنزيل النموذج فقط)</td>
+          <td>تطبق سياسة خصوصية Google على سلوك الحزمة التطويرية</td>
+        </tr>
+        <tr>
+          <td>Google Play (التوزيع)</td>
+          <td>توزيع التطبيق وتحديثاته بأمان</td>
+          <td>بيانات التثبيت والتحديث القياسية لمتجر Play</td>
+          <td>تخضع لشروط خدمة متجر Google Play</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>لا يستخدم الإصدار الأول v1 من تطبيق CalcEditor خدمات Google Cloud Vision، أو MathPix، أو Firebase، أو AdMob، أو Google Analytics، أو Crashlytics، أو أي خدمات سحابية أو تحليلية مشابهة.</p>
+  </section>
+
+  <section>
+    <h2>٩. إخلاء المسؤولية الصحي والإحصائي</h2>
+    <p>يتضمن تطبيق CalcEditor أدوات لحساب مؤشر كتلة الجسم (BMI)، ومعدل الأيض الأساسي (BMR)، وتقدير السعرات الحرارية، وحسابات إحصائية. تُقدم هذه الأدوات <strong>لأغراض تعليمية وإرشادية عامة فقط</strong>.</p>
+    <ul>
+      <li><strong>الأدوات الصحية (BMI/BMR/السعرات):</strong> نتائج هذه الأدوات هي تقديرات عامة وإرشادية فقط. لا تمثل نصائح طبية، ولا تقييمات سريرية، ولا توجيهات صحية مهنية. يُرجى استشارة أخصائي رعاية صحية مؤهل قبل اتخاذ أي قرارات صحية أو غذائية.</li>
+      <li><strong>أدوات الإحصاء:</strong> تعتمد النتائج بالكامل على دقة البيانات المدخلة والافتراضات الإحصائية المستخدمة. لا تمثل نصائح مهنية أو سريرية أو مالية أو قانونية. يرجى عدم الاعتماد على المخرجات الإحصائية لهذا التطبيق كأساس وحيد للقرارات الهامة أو المصيرية.</li>
+    </ul>
+    <p>لا يتم حفظ أي بيانات صحية أو إحصائية تدخلها خارج نطاق جلستك الحالية ولا يتم نقلها مطلقاً من جهازك.</p>
+  </section>
+
+  <section>
+    <h2>١٠. خصوصية الأطفال</h2>
+    <p>تطبيق CalcEditor هو تطبيق حاسبة علمية مخصص للأغراض التعليمية. وهو لا يقوم بجمع أي معلومات شخصية من الأطفال دون سن ١٣ عاماً (أو السن القانوني المطبق في بلدك) بشكل متعمد. ونظراً لأن تطبيق CalcEditor لا يجمع أي معلومات شخصية من أي مستخدم على الإطلاق، فإن هذا المتطلب يعتبر محققاً وتلقائياً بطبيعته. إذا كان لديك أي مخاوف بهذا الخصوص، يرجى <a href="mailto:Omarahmadmzory@gmail.com">الاتصال بنا</a>.</p>
+  </section>
+
+  <section>
+    <h2>١١. أمن البيانات</h2>
+    <p>بما أن تطبيق CalcEditor لا يرسل بيانات المستخدمين إلى خوادمنا، فإن العامل الأمني الأساسي يتمثل في حماية وتأمين جهازك نفسه.</p>
+    <ul>
+      <li>يتم تخزين البيانات المحلية (سجل الحسابات والتفضيلات) باستخدام نظام SharedPreferences القياسي في أندرويد، وتخضع لحماية بيئة التشغيل المعزولة (Application Sandboxing) الافتراضية لأندرويد.</li>
+      <li>نوصي بالحفاظ على تحديث نظام التشغيل والتطبيقات في جهازك بشكل دوري.</li>
+      <li>نحن لا نملك القدرة على الوصول إلى أي بيانات مخزنة على جهازك.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>١٢. الاحتفاظ بالبيانات وحذفها</h2>
+    <table>
+      <thead>
+        <tr><th>البيانات</th><th>مدة الاحتفاظ</th><th>طريقة الحذف</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>سجل الحسابات</td>
+          <td>على الجهاز حتى يتم مسحه بواسطة المستخدم أو إلغاء تثبيت التطبيق</td>
+          <td>المسح عبر إعدادات سجل التطبيق، أو إلغاء تثبيته</td>
+        </tr>
+        <tr>
+          <td>إعدادات وتفضيلات التطبيق</td>
+          <td>على الجهاز حتى يتم مسحه أو إلغاء تثبيت التطبيق</td>
+          <td>الإعدادات &larr; التطبيقات &larr; CalcEditor &larr; مسح البيانات، أو إلغاء التثبيت</td>
+        </tr>
+        <tr>
+          <td>الصور المستخدمة للتعرف البصري (OCR)</td>
+          <td>لا يتم تخزينها بشكل دائم على التطبيق</td>
+          <td>غير قابل للتطبيق — لا يتم الاحتفاظ بالصور بعد انتهاء جلسة التعرف</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>لا يوجد حساب شخصي لحذفه نظراً لعدم وجود نظام للحسابات في التطبيق. يؤدي إلغاء تثبيت التطبيق من جهازك إلى مسح كافة البيانات المخزنة محلياً بالكامل.</p>
+  </section>
+
+  <section>
+    <h2>١٣. التغييرات على سياسة الخصوصية</h2>
+    <p>قد نقوم بتحديث سياسة الخصوصية هذه مع تطور ميزات تطبيق CalcEditor (على سبيل المثال، إذا أضاف إصدار مستقبلي ميزات سحابية أو تحليلات). وعند قيامنا بأي تحديث:</p>
+    <ul>
+      <li>سنقوم بتحديث تاريخ &ldquo;آخر تحديث&rdquo; في أعلى هذا المستند.</li>
+      <li>إذا تغير رابط الصفحة المستضيفة، فسنقوم بتحديث الرابط المضمن داخل التطبيق.</li>
+      <li>في حال وجود تغييرات جوهرية (على سبيل المثال، تقديم عمليات جمع للبيانات)، سنقوم بتقديم إشعار واضح من خلال التطبيق أو ملاحظات التحديث في المتجر.</li>
+    </ul>
+    <p>نوصي بمراجعة هذه الصفحة بشكل دوري. يمثل استمرارك في استخدام التطبيق بعد نشر التحديثات قبولاً وموافقة منك على سياسة الخصوصية المحدثة.</p>
+  </section>
+
+  <section>
+    <h2>١٤. حقوقك</h2>
+    <p>بما أن تطبيق CalcEditor لا يجمع أو يخزن بياناتك الشخصية في خوادمنا، فإن معظم حقوق أصحاب البيانات التقليدية (مثل طلب الوصول، أو التصحيح، أو نقل البيانات، أو طلبات الحذف الموجهة إلينا) لا تنطبق بالمعنى التقليدي. أنت تتحكم في كافة البيانات المخزنة محلياً على جهازك بشكل مباشر وحصري.</p>
+    <p>إذا كنت مقيماً في منطقة تخضع لقوانين حماية بيانات محددة (مثل GDPR أو CCPA) ولديك استفسارات حول كيفية تطبيقها على تطبيق CalcEditor، فيرجى <a href="mailto:Omarahmadmzory@gmail.com">الاتصال بنا</a>.</p>
+  </section>
+
+  <section>
+    <h2>١٥. الاتصال بنا</h2>
+    <p>لأي استفسارات، أو مخاوف، أو طلبات تتعلق بالخصوصية:</p>
+    <p>
+      <strong>المطور:</strong> عمر أ. الكردي<br>
+      <strong>البريد الإلكتروني:</strong> <a href="mailto:Omarahmadmzory@gmail.com">Omarahmadmzory@gmail.com</a><br>
+      <strong>التطبيق:</strong> CalcEditor
+    </p>
+    <p>سنقوم بالرد على جميع الاستفسارات المتعلقة بالخصوصية خلال فترة زمنية معقولة.</p>
+  </section>
+
+  <section>
+    <h2>الملحق: الأذونات المستخدمة</h2>
+    <table>
+      <thead>
+        <tr><th>الإذن</th><th>الجهة المطلوبة</th><th>الغرض والهدف</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>INTERNET</code></td>
+          <td>حزمة Google ML Kit SDK</td>
+          <td>تنزيل/تحديث ملفات نموذج التعرف البصري على النصوص محلياً على الجهاز</td>
+        </tr>
+        <tr>
+          <td><code>ACCESS_NETWORK_STATE</code></td>
+          <td>حزمة Google ML Kit SDK</td>
+          <td>التحقق من حالة اتصال الشبكة قبل بدء تنزيل ملفات النموذج</td>
+        </tr>
+        <tr>
+          <td><code>CAMERA</code></td>
+          <td>ميزة التعرف البصري OCR (بطلب المستخدم)</td>
+          <td>التقاط صورة لتعبيرات رياضية لتمريرها للتعرف البصري المحلي</td>
+        </tr>
+        <tr>
+          <td><code>READ_MEDIA_IMAGES</code> (أو ما يعادله)</td>
+          <td>ميزة التعرف البصري OCR (بطلب المستخدم)</td>
+          <td>اختيار صورة من المعرض لتمريرها للتعرف البصري المحلي</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>لا يطلب تطبيق CalcEditor أذونات الوصول للموقع، أو جهات الاتصال، أو الميكروفون، أو البلوتوث، أو أي أذونات حساسة أخرى بخلاف تلك المذكورة أعلاه.</p>
+    <p>أذونات الكاميرا ومعرض الصور اختيارية بالكامل: يؤدي رفضها إلى إبقاء كافة وظائف الحاسبة الأخرى تعمل وتتوفر بالكامل دون أي مشاكل.</p>
+  </section>
+
+  </section>
+
+  <footer>
+    <p style="margin-bottom: 6px;">تسري سياسة الخصوصية هذه على تطبيق CalcEditor لأجهزة أندرويد بدءاً من الإصدار v1.0.0 والإصدارات اللاحقة ما لم يتم استبدالها.</p>
+    <p style="margin-bottom: 6px;">تطبيق CalcEditor ليس تابعاً لشركات Google، أو Casio، أو Wolfram Alpha، أو Desmos، أو Photomath، أو MathPix.</p>
+    <p style="margin-top:8px;">&copy; ٢٠٢٦ عمر أ. الكردي. جميع الحقوق محفوظة.</p>
+  </footer>
+
+</div>
+
+<script>
+  // Theme Toggle Listener
+  const themeToggleBtn = document.getElementById('theme-toggle');
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.contains('dark-theme') || 
+                    (!document.documentElement.classList.contains('light-theme') && 
+                     window.matchMedia('(prefers-color-scheme: dark)').matches);
+      
+      if (isDark) {
+        document.documentElement.classList.remove('dark-theme');
+        document.documentElement.classList.add('light-theme');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.classList.remove('light-theme');
+        document.documentElement.classList.add('dark-theme');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
