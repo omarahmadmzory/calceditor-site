@@ -285,6 +285,113 @@
       table { font-size: 0.82rem; }
       th, td { padding: 8px 10px; }
     }
+
+    @media (max-width: 640px) {
+      html, body { max-width: 100%; overflow-x: hidden; }
+
+      nav { padding: 0 14px; }
+      .nav-inner {
+        height: auto;
+        min-height: 56px;
+        padding: 10px 0;
+        flex-wrap: wrap;
+        gap: 8px 12px;
+      }
+      .nav-logo {
+        font-size: 1rem;
+        flex: 0 0 auto;
+      }
+      .nav-links {
+        flex: 1 1 100%;
+        min-width: 0;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px 10px;
+      }
+      .nav-links a {
+        font-size: 0.78rem;
+        line-height: 1.1;
+        white-space: nowrap;
+      }
+      .theme-toggle-btn {
+        width: 34px;
+        height: 34px;
+        flex: 0 0 34px;
+      }
+      .nav-cta {
+        min-width: auto;
+        padding: 7px 10px;
+        font-size: 0.76rem !important;
+      }
+
+      .page {
+        max-width: 100%;
+        padding: 28px 16px 64px;
+      }
+      header h1 {
+        font-size: clamp(1.35rem, 7vw, 1.65rem);
+        line-height: 1.25;
+        overflow-wrap: anywhere;
+      }
+      .meta,
+      p,
+      li,
+      td,
+      th,
+      a,
+      code {
+        overflow-wrap: anywhere;
+        word-break: normal;
+      }
+      ul, ol { padding-right: 20px; }
+      h2 {
+        font-size: 1.08rem;
+        line-height: 1.35;
+      }
+
+      table {
+        display: block;
+        width: 100%;
+        border: 0;
+        font-size: 0.84rem;
+      }
+      thead { display: none; }
+      tbody,
+      tr,
+      th,
+      td {
+        display: block;
+        width: 100%;
+      }
+      tr {
+        border: 1px solid var(--table-border);
+        border-radius: 8px;
+        overflow: hidden;
+        margin: 0 0 12px;
+        background: var(--bg);
+      }
+      th,
+      td {
+        border: 0;
+        border-bottom: 1px solid var(--table-border);
+        padding: 9px 10px;
+      }
+      th:last-child,
+      td:last-child {
+        border-bottom: 0;
+      }
+      .summary-box {
+        padding: 14px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      nav { padding: 0 10px; }
+      .nav-links { gap: 7px 8px; }
+      .nav-links a { font-size: 0.74rem; }
+      .nav-cta { padding: 7px 9px; }
+      .page { padding-left: 14px; padding-right: 14px; }
+    }
   </style>
 </head>
 <body>
