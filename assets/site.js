@@ -38,18 +38,36 @@
     const languageHref=lang==='ar'?'index.html?lang=en':'index_ar.html?lang=ar';
     const actionHref=page==='privacy'?homeHref:sitePath(policyFile);
     const actionText=page==='privacy'?t.actionHome:t.actionPolicy;
-    nav.innerHTML=`<div class="nav-inner"><a href="${homeHref}" class="nav-logo">Calc<span>Editor</span></a><div class="nav-links"><a href="${featuresHref}">${t.features}</a><a href="${privacyAnchorHref}">${t.privacy}</a><a href="mailto:Omarahmadmzory@gmail.com">${t.contact}</a><a href="${languageHref}" class="nav-lang">${t.switchLanguage}</a><button id="theme-toggle" class="theme-toggle-btn" aria-label="${t.theme}">${sunIcon}${moonIcon}</button><span class="nav-action-slot"><a href="${actionHref}" class="nav-cta">${actionText}</a></span></div></div>`;
+    nav.innerHTML=`<div class="nav-inner"><a href="${homeHref}" class="nav-logo">Calc<span>Editor</span></a><div class="nav-links"><a href="${featuresHref}" class="nav-link-features">${t.features}</a><a href="${privacyAnchorHref}" class="nav-link-privacy">${t.privacy}</a><a href="mailto:Omarahmadmzory@gmail.com" class="nav-link-contact">${t.contact}</a><a href="${languageHref}" class="nav-lang">${t.switchLanguage}</a><button id="theme-toggle" class="theme-toggle-btn" aria-label="${t.theme}">${sunIcon}${moonIcon}</button><span class="nav-action-slot"><a href="${actionHref}" class="nav-cta">${actionText}</a></span><button id="hamburger-toggle" class="hamburger-btn" aria-label="Menu"><svg class="hamburger-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line class="line-1" x1="3" y1="6" x2="21" y2="6"></line><line class="line-2" x1="3" y1="12" x2="21" y2="12"></line><line class="line-3" x1="3" y1="18" x2="21" y2="18"></line></svg></button></div></div><div id="mobile-menu" class="mobile-dropdown"><div class="mobile-theme-row"><span>${t.theme}</span><button id="theme-toggle-mobile" class="theme-toggle-btn" aria-label="${t.theme}">${sunIcon}${moonIcon}</button></div><a href="mailto:Omarahmadmzory@gmail.com" class="mobile-contact-link">${t.contact}</a></div>`;
   }
   function bindThemeToggle(){
-    const themeToggleBtn=document.getElementById('theme-toggle');
-    if(!themeToggleBtn)return;
-    themeToggleBtn.addEventListener('click',()=>{
+    const toggleTheme=()=>{
       const isDark=root.classList.contains('dark-theme')||(!root.classList.contains('light-theme')&&window.matchMedia('(prefers-color-scheme: dark)').matches);
       if(isDark){root.classList.remove('dark-theme');root.classList.add('light-theme');localStorage.setItem('theme','light')}
       else{root.classList.remove('light-theme');root.classList.add('dark-theme');localStorage.setItem('theme','dark')}
+    };
+    const desktopBtn=document.getElementById('theme-toggle');
+    const mobileBtn=document.getElementById('theme-toggle-mobile');
+    if(desktopBtn)desktopBtn.addEventListener('click',toggleTheme);
+    if(mobileBtn)mobileBtn.addEventListener('click',toggleTheme);
+  }
+  function bindHamburger(){
+    const toggleBtn=document.getElementById('hamburger-toggle');
+    const mobileMenu=document.getElementById('mobile-menu');
+    if(!toggleBtn||!mobileMenu)return;
+    toggleBtn.addEventListener('click',(e)=>{
+      e.stopPropagation();
+      mobileMenu.classList.toggle('open');
+      toggleBtn.classList.toggle('active');
+    });
+    document.addEventListener('click',(e)=>{
+      if(!mobileMenu.contains(e.target)&&!toggleBtn.contains(e.target)){
+        mobileMenu.classList.remove('open');
+        toggleBtn.classList.remove('active');
+      }
     });
   }
   routeLanguage();
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>{renderNav();bindThemeToggle()});
-  else{renderNav();bindThemeToggle()}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>{renderNav();bindThemeToggle();bindHamburger()});
+  else{renderNav();bindThemeToggle();bindHamburger()}
 })();
