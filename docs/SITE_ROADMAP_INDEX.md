@@ -8,10 +8,10 @@
 
 | Field | Value |
 |---|---|
-| Latest completed | S002 - SITE_RESEARCH_SKILLS_AND_ROADMAP_CREATION |
-| Current | OWNER_REVIEW_OF_SITE_ROADMAP |
-| Status | IMPLEMENTATION_NOT_AUTHORIZED |
-| Next | S003 - SITE_DESIGN_SYSTEM_FOUNDATION_TOKENS_AND_COMPONENTS |
+| Latest completed | S004 - SITE_SHARED_HEADER_NAVIGATION_AND_FOOTER |
+| Current | OWNER_REVIEW_OF_SHARED_SITE_SHELL |
+| Status | SHARED_SITE_SHELL_IMPLEMENTED |
+| Next | S005 - SITE_HOME_PAGE_REBUILD |
 
 This table is a fixed-size snapshot, not a growing log (`S-LOG-1`). Rolling command history lives in `docs/SITE_AGENT_SESSION_LOG.md` only.
 

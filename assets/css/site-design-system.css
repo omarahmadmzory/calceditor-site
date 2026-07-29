@@ -1,0 +1,555 @@
+/*
+  CalcEditor Site Design System — Foundation (S003)
+  ---------------------------------------------------
+  Standalone token + component-primitive layer. Not yet wired into
+  production pages (index.html / index_ar.html / privacy-policy/*).
+  Namespaced with a `cx-` prefix (custom properties: --cx-*, classes: .cx-*)
+  so it can be adopted incrementally in S004/S005 without colliding with
+  the existing assets/site.css class names.
+
+  Design direction: a "precision instrument" reading of CalcEditor's
+  identity — hairline borders over soft shadows, tabular/monospace
+  numerals for anything numeric, a bracket-frame signature motif
+  (mathematical grouping), a sharper/smaller radius scale used
+  deliberately rather than uniformly. No external fonts, no build
+  step — system font stacks only.
+
+  S004B (color revision): the original navy/violet palette read as
+  "too blue everywhere" per Owner feedback. Base neutrals are now
+  genuine grays (no blue cast); the single accent is a copper/burnt-
+  orange, used only for primary buttons, links, the active-nav/bracket
+  indicator, and the focus ring — never as a background. See the
+  Color Tokens section below for full before/after values, and
+  docs/audits/SITE_COLOR_SYSTEM_REVISION_S004B_2026-07-29.md for the
+  contrast re-verification.
+*/
+
+/* =========================================================
+   1. TYPOGRAPHY TOKENS
+   ========================================================= */
+:root{
+  /* Font stacks */
+  --cx-font-en:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --cx-font-ar:"Segoe UI",-apple-system,BlinkMacSystemFont,Tahoma,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --cx-font-fallback:system-ui,sans-serif;
+  --cx-font-data:ui-monospace,"SF Mono","Cascadia Code","Consolas","Roboto Mono",monospace;
+
+  /* Type scale (fluid, clamp-based — stable across breakpoints without
+     hard-coding device widths) */
+  --cx-text-xs:clamp(0.75rem,0.72rem + 0.1vw,0.8rem);      /* small/meta */
+  --cx-text-sm:clamp(0.85rem,0.82rem + 0.12vw,0.9rem);     /* labels, nav */
+  --cx-text-base:clamp(0.95rem,0.92rem + 0.15vw,1rem);     /* body */
+  --cx-text-lg:clamp(1.05rem,1rem + 0.2vw,1.15rem);        /* lead paragraph */
+  --cx-text-xl:clamp(1.25rem,1.15rem + 0.4vw,1.5rem);      /* h3 */
+  --cx-text-2xl:clamp(1.5rem,1.3rem + 0.8vw,2rem);         /* h2 */
+  --cx-text-3xl:clamp(1.9rem,1.5rem + 1.6vw,2.75rem);      /* h1 */
+  --cx-text-display:clamp(2.25rem,1.7rem + 2.4vw,3.5rem);  /* hero/display */
+
+  /* Line height */
+  --cx-leading-tight:1.15;
+  --cx-leading-heading:1.25;
+  --cx-leading-body:1.65;
+  --cx-leading-body-ar:1.85; /* Arabic script benefits from extra leading */
+
+  /* Weight */
+  --cx-weight-regular:400;
+  --cx-weight-medium:500;
+  --cx-weight-semibold:600;
+  --cx-weight-bold:700;
+  --cx-weight-black:800;
+
+  /* Letter spacing — LTR/English only; never applied to Arabic (see §6) */
+  --cx-tracking-tight:-0.01em;
+  --cx-tracking-normal:0;
+  --cx-tracking-wide:0.04em;
+  --cx-tracking-eyebrow:0.08em;
+
+  /* Reading widths */
+  --cx-measure-reading:65ch;
+  --cx-measure-narrow:52ch;
+}
+
+/* =========================================================
+   2. COLOR TOKENS  (revised S004B — neutral-first, single accent)
+   ---------------------------------------------------------
+   S004B replaced the previous navy/violet-tinted palette after Owner
+   feedback that it read as "too blue everywhere" in both themes. Base
+   neutrals below are genuine grays (R≈G≈B, no blue cast) rather than a
+   navy/graphite tint. Exactly one accent hue remains — a copper/burnt-
+   orange grounded in scientific-instrument materials (oxidized copper
+   trace/calibration-mark tones), deliberately not blue, not violet, and
+   not the generic near-black+acid-accent AI-design default: it sits in a
+   warmer, more muted register than that cliché and is used only for
+   primary buttons, links, the active-nav/bracket indicator, and the
+   focus ring — never as a background or gradient. Previous values are
+   recorded per-token below for the S004B before/after report.
+   ========================================================= */
+:root{
+  /* Named palette (the "signature" families) */
+  --cx-ink-950:#0a0a0a;   /* was #0b0f1d (navy-black) */
+  --cx-ink-900:#121212;   /* was #0f1424 (navy-black) */
+  --cx-ink-800:#1e1e1e;   /* was #171d33 (navy-black) */
+  --cx-accent-300:#e2a077; /* was --cx-violet-300 #c4b5fd — light accent tint for dark-mode text */
+  --cx-violet-300:var(--cx-accent-300); /* compatibility alias: assets/css/site-shell.css (S004, out of S004B's file scope) references --cx-violet-300 directly for the logo/lang-switch/footer accent — kept resolving to the new copper tone rather than left undefined */
+  --cx-accent-500:#c2540e; /* was --cx-violet-500 #8b5cf6 */
+  --cx-accent-600:#a8460a; /* was --cx-violet-600 #7c3aed — primary accent */
+  --cx-accent-700:#8a3908; /* was --cx-violet-700 #6d28d9 — accent hover */
+  --cx-paper-50:#fafafa;   /* was #fafafc (slightly blue-tinted) */
+  --cx-paper-100:#f1f1f1;  /* was #f3f4f8 (slightly blue-tinted) */
+  --cx-graphite-200:#e1e1e1; /* was #e4e6ed (blue-tinted) */
+  --cx-graphite-400:#6d6d6d; /* was #666c80 (blue-tinted); #757575 initially tried here measured 4.41:1 (failed AA), this value verifies at 4.96:1 on --cx-paper-50 */
+  --cx-graphite-600:#494949; /* was #4b5163 (blue-tinted) */
+  --cx-graphite-900:#171717; /* was #1b2030 (blue-tinted) */
+
+  /* Semantic state colors — success/error kept; warning shifted more
+     gold/olive and info desaturated so neither reads as "the accent"
+     nor keeps contributing to an overall blue impression */
+  --cx-result-600:#15803d; /* was #16a34a */
+  --cx-result-100:#dcfce7;
+  --cx-amber-600:#a16207;  /* was #d97706 — shifted toward gold, away from the new copper accent */
+  --cx-amber-100:#fef3c7;
+  --cx-red-600:#dc2626;
+  --cx-red-100:#fee2e2;
+  --cx-blue-600:#3b5ba6;  /* was #2563eb — desaturated/muted so "info" no longer reads as vivid blue */
+  --cx-blue-100:#dbeafe;
+
+  /* Role tokens — light mode (default) */
+  --cx-color-brand:var(--cx-accent-600);        /* was var(--cx-violet-600) */
+  --cx-color-brand-hover:var(--cx-accent-700);  /* was var(--cx-violet-700) */
+  --cx-color-accent:var(--cx-accent-600);       /* was var(--cx-violet-500) — now identical to brand: exactly ONE accent, not two hues */
+  --cx-color-text:var(--cx-graphite-900);
+  --cx-color-text-secondary:var(--cx-graphite-600);
+  --cx-color-text-muted:var(--cx-graphite-400);
+  --cx-color-bg:var(--cx-paper-50);
+  --cx-color-surface:#ffffff;
+  --cx-color-surface-subtle:var(--cx-paper-100);
+  --cx-color-border:var(--cx-graphite-200);
+  --cx-color-border-strong:var(--cx-graphite-400);
+  --cx-color-focus-ring:var(--cx-accent-600);   /* was var(--cx-violet-600) */
+  --cx-color-success:var(--cx-result-600);
+  --cx-color-success-bg:var(--cx-result-100);
+  --cx-color-warning:var(--cx-amber-600);
+  --cx-color-warning-bg:var(--cx-amber-100);
+  --cx-color-error:var(--cx-red-600);
+  --cx-color-error-bg:var(--cx-red-100);
+  --cx-color-info:var(--cx-blue-600);
+  --cx-color-info-bg:var(--cx-blue-100);
+  --cx-color-disabled-bg:var(--cx-graphite-200);
+  --cx-color-disabled-text:var(--cx-graphite-400);
+
+  /* On-dark-surface text (hero, dark cards) — already neutral
+     (white + alpha), unchanged by this revision */
+  --cx-color-on-dark:#ffffff;
+  --cx-color-on-dark-secondary:rgba(255,255,255,.66);
+  --cx-color-on-dark-muted:rgba(255,255,255,.45);
+  --cx-color-on-dark-border:rgba(255,255,255,.14);
+}
+
+/* Dark theme — carried forward from the existing production system
+   (assets/site.css already implements manual + prefers-color-scheme
+   dark mode; docs/SITE_ROADMAP.md §21 explicitly keeps both for Phase 1) */
+@media (prefers-color-scheme:dark){
+  :root:not(.cx-light){
+    --cx-color-text:#f2f2f2;          /* was #eef0fb (blue-tinted) */
+    --cx-color-text-secondary:#c7c7c7; /* was #c7cadb (blue-tinted) */
+    --cx-color-text-muted:#9a9a9a;     /* was #8d92a8 (blue-tinted) */
+    --cx-color-bg:var(--cx-ink-900);
+    --cx-color-surface:var(--cx-ink-800);
+    --cx-color-surface-subtle:#171717; /* was #141a2c (navy-tinted) */
+    --cx-color-border:#2a2a2a;         /* was #252c44 (navy-tinted) */
+    --cx-color-border-strong:#3d3d3d;  /* was #3a4260 (navy-tinted) */
+    --cx-color-accent:var(--cx-accent-300); /* was var(--cx-violet-300) */
+  }
+}
+:root.cx-dark{
+  --cx-color-text:#f2f2f2;
+  --cx-color-text-secondary:#c7c7c7;
+  --cx-color-text-muted:#9a9a9a;
+  --cx-color-bg:var(--cx-ink-900);
+  --cx-color-surface:var(--cx-ink-800);
+  --cx-color-surface-subtle:#171717;
+  --cx-color-border:#2a2a2a;
+  --cx-color-border-strong:#3d3d3d;
+  --cx-color-accent:var(--cx-accent-300);
+}
+
+/* =========================================================
+   3. SPACING TOKENS
+   ========================================================= */
+:root{
+  --cx-space-1:0.25rem;   /* 4px  */
+  --cx-space-2:0.5rem;    /* 8px  */
+  --cx-space-3:0.75rem;   /* 12px */
+  --cx-space-4:1rem;      /* 16px */
+  --cx-space-5:1.5rem;    /* 24px */
+  --cx-space-6:2rem;      /* 32px */
+  --cx-space-7:3rem;      /* 48px */
+  --cx-space-8:4rem;      /* 64px */
+  --cx-space-9:6rem;      /* 96px */
+
+  --cx-space-inline:var(--cx-space-3);   /* default gap between inline items */
+  --cx-space-stack:var(--cx-space-4);    /* default gap between stacked blocks */
+  --cx-space-section:clamp(3rem,2.2rem + 3vw,6rem); /* vertical section rhythm */
+  --cx-container-padding:clamp(1rem,0.7rem + 1.2vw,1.5rem);
+  --cx-space-mobile-safe:1rem; /* minimum edge padding, never go below this */
+}
+
+/* =========================================================
+   4. GEOMETRY TOKENS
+   ========================================================= */
+:root{
+  --cx-content-max:1120px;
+  --cx-reading-max:var(--cx-measure-reading);
+
+  --cx-radius-none:0;
+  --cx-radius-xs:4px;
+  --cx-radius-sm:6px;
+  --cx-radius-md:10px;
+  --cx-radius-lg:16px;
+  --cx-radius-pill:999px;
+
+  --cx-border-width:1px;
+  --cx-border-width-strong:2px;
+
+  --cx-shadow-none:none;
+  --cx-shadow-resting:0 1px 2px rgba(15,20,36,.04);
+  --cx-shadow-elevated:0 8px 24px rgba(15,20,36,.10);
+  --cx-shadow-focus:0 0 0 3px rgba(168,70,10,.35); /* S004B: was rgba(124,58,237,.35) violet — now matches the new copper accent */
+
+  --cx-control-height-sm:32px;
+  --cx-control-height-md:40px;
+  --cx-control-height-lg:48px;
+  --cx-target-min:44px; /* minimum interactive target, WCAG 2.5.5-informed */
+}
+
+/* =========================================================
+   5. MOTION TOKENS
+   ========================================================= */
+:root{
+  --cx-duration-fast:120ms;
+  --cx-duration-base:180ms;
+  --cx-duration-slow:280ms;
+  --cx-ease-standard:cubic-bezier(.4,0,.2,1);
+  --cx-ease-out:cubic-bezier(0,0,.2,1);
+}
+.cx-shell{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  .cx-shell{scroll-behavior:auto}
+  *,*::before,*::after{
+    animation-duration:0.001ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:0.001ms!important;
+    scroll-behavior:auto!important;
+  }
+}
+
+/* =========================================================
+   6. BASE / DIRECTIONALITY
+   ========================================================= */
+*,*::before,*::after{box-sizing:border-box}
+.cx-shell{
+  margin:0;
+  font-family:var(--cx-font-en),var(--cx-font-fallback);
+  font-size:16px;
+  line-height:var(--cx-leading-body);
+  color:var(--cx-color-text);
+  background:var(--cx-color-bg);
+  -webkit-text-size-adjust:100%;
+}
+/* Matches a [dir="rtl"] element directly (not only as an ancestor of
+   .cx-shell) so a nested RTL region works correctly even when the
+   .cx-shell root itself stays LTR — e.g. a mixed-language preview page,
+   as opposed to a whole-file-Arabic production page where <html> itself
+   carries dir="rtl". font-family/line-height inherit to all descendants. */
+[dir="rtl"] .cx-shell,.cx-shell[dir="rtl"],[dir="rtl"]{
+  font-family:var(--cx-font-ar),var(--cx-font-fallback);
+  line-height:var(--cx-leading-body-ar);
+}
+/* Letter-spacing utilities are LTR-only by construction: they are never
+   applied to an element carrying [dir="rtl"] or :lang(ar) content. */
+:lang(ar){letter-spacing:0!important}
+
+.cx-visually-hidden{
+  position:absolute!important;
+  width:1px;height:1px;
+  padding:0;margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
+}
+
+.cx-skip-link{
+  position:absolute;
+  inset-inline-start:var(--cx-space-3);
+  top:-48px;
+  background:var(--cx-color-brand);
+  color:#fff;
+  padding:var(--cx-space-2) var(--cx-space-4);
+  border-radius:var(--cx-radius-sm);
+  font-size:var(--cx-text-sm);
+  font-weight:var(--cx-weight-semibold);
+  z-index:1000;
+  transition:top var(--cx-duration-base) var(--cx-ease-out);
+}
+.cx-skip-link:focus{top:var(--cx-space-3)}
+
+/* Directional mirroring — applied ONLY to elements whose meaning is
+   directional (arrows, "next/back" chevrons). Never applied blanket. */
+[dir="rtl"] .cx-mirror-rtl{transform:scaleX(-1)}
+
+/* Focus-visible — one consistent ring, meets the roadmap's accessibility
+   requirement for a visible keyboard focus indicator (S002 §23) */
+.cx-shell :focus-visible{
+  outline:var(--cx-border-width-strong) solid var(--cx-color-focus-ring);
+  outline-offset:2px;
+  border-radius:var(--cx-radius-xs);
+}
+
+/* =========================================================
+   7. LAYOUT PRIMITIVES
+   ========================================================= */
+.cx-container{
+  max-width:var(--cx-content-max);
+  margin-inline:auto;
+  padding-inline:var(--cx-container-padding);
+}
+.cx-container-narrow{
+  max-width:var(--cx-reading-max);
+  margin-inline:auto;
+  padding-inline:var(--cx-container-padding);
+}
+.cx-section{padding-block:var(--cx-space-section)}
+.cx-stack{display:flex;flex-direction:column;gap:var(--cx-space-stack)}
+.cx-stack-sm{display:flex;flex-direction:column;gap:var(--cx-space-2)}
+.cx-stack-lg{display:flex;flex-direction:column;gap:var(--cx-space-6)}
+.cx-inline{display:flex;flex-wrap:wrap;align-items:center;gap:var(--cx-space-inline)}
+.cx-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));
+  gap:var(--cx-space-5);
+}
+@media (max-width:640px){
+  .cx-grid{grid-template-columns:minmax(0,1fr)}
+}
+
+/* =========================================================
+   8. TEXT PRIMITIVES
+   ========================================================= */
+.cx-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:var(--cx-space-2);
+  font-size:var(--cx-text-xs);
+  font-weight:var(--cx-weight-bold);
+  letter-spacing:var(--cx-tracking-eyebrow);
+  text-transform:uppercase;
+  color:var(--cx-color-accent); /* S004B: was --cx-color-brand — accent has a lighter dark-mode variant so this text keeps AA contrast on a dark background */
+}
+[dir="rtl"] .cx-eyebrow{letter-spacing:0;text-transform:none}
+/* Bracket-frame signature: a thin, oversized grouping glyph used as a
+   structural frame — echoes mathematical grouping notation. Purely
+   typographic (no image asset), mirrors correctly under RTL because the
+   opening/closing glyphs are swapped via the [dir] selector rather than
+   transformed. */
+.cx-eyebrow--bracketed::before{content:"[ ";font-weight:var(--cx-weight-regular);opacity:.55}
+.cx-eyebrow--bracketed::after{content:" ]";font-weight:var(--cx-weight-regular);opacity:.55}
+[dir="rtl"] .cx-eyebrow--bracketed::before{content:"] "}
+[dir="rtl"] .cx-eyebrow--bracketed::after{content:" ["}
+
+.cx-display{
+  font-size:var(--cx-text-display);
+  font-weight:var(--cx-weight-black);
+  line-height:var(--cx-leading-tight);
+  letter-spacing:var(--cx-tracking-tight);
+  color:var(--cx-color-text);
+}
+[dir="rtl"] .cx-display{letter-spacing:0;line-height:var(--cx-leading-heading)}
+.cx-h1{font-size:var(--cx-text-3xl);font-weight:var(--cx-weight-bold);line-height:var(--cx-leading-heading);letter-spacing:var(--cx-tracking-tight);color:var(--cx-color-text)}
+.cx-h2{font-size:var(--cx-text-2xl);font-weight:var(--cx-weight-bold);line-height:var(--cx-leading-heading);color:var(--cx-color-text)}
+.cx-h3{font-size:var(--cx-text-xl);font-weight:var(--cx-weight-semibold);line-height:var(--cx-leading-heading);color:var(--cx-color-text)}
+[dir="rtl"] .cx-h1,[dir="rtl"] .cx-h2,[dir="rtl"] .cx-h3{letter-spacing:0}
+
+.cx-lead{font-size:var(--cx-text-lg);color:var(--cx-color-text-secondary);max-width:var(--cx-reading-max)}
+.cx-body{font-size:var(--cx-text-base);color:var(--cx-color-text);max-width:var(--cx-reading-max)}
+.cx-muted{font-size:var(--cx-text-sm);color:var(--cx-color-text-muted)}
+.cx-small{font-size:var(--cx-text-xs);color:var(--cx-color-text-secondary)}
+
+/* Numeric/data treatment — tabular figures + monospace, reserved for
+   calculator-style output, stats, or figures. Never applied to Arabic
+   prose; intended for Western-digit numeric content specifically. */
+.cx-numeral{
+  font-family:var(--cx-font-data),var(--cx-font-fallback);
+  font-variant-numeric:tabular-nums;
+  font-feature-settings:"tnum" 1;
+}
+
+/* =========================================================
+   9. BUTTONS
+   ========================================================= */
+.cx-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:var(--cx-space-2);
+  min-height:var(--cx-control-height-lg);
+  min-width:var(--cx-target-min);
+  padding-inline:var(--cx-space-5);
+  border-radius:var(--cx-radius-sm);
+  font-size:var(--cx-text-sm);
+  font-weight:var(--cx-weight-semibold);
+  border:var(--cx-border-width) solid transparent;
+  cursor:pointer;
+  text-decoration:none;
+  transition:background-color var(--cx-duration-base) var(--cx-ease-standard),
+             border-color var(--cx-duration-base) var(--cx-ease-standard),
+             transform var(--cx-duration-fast) var(--cx-ease-out);
+}
+.cx-btn:active{transform:translateY(1px)}
+.cx-btn--primary{background:var(--cx-color-brand);color:#fff}
+.cx-btn--primary:hover{background:var(--cx-color-brand-hover)}
+.cx-btn--secondary{background:transparent;border-color:var(--cx-color-border-strong);color:var(--cx-color-text)}
+.cx-btn--secondary:hover{background:var(--cx-color-surface-subtle)}
+.cx-btn--text{
+  min-height:auto;min-width:auto;padding-inline:0;
+  background:none;border:none;color:var(--cx-color-accent); /* S004B: was --cx-color-brand, see .cx-eyebrow note above */
+  font-weight:var(--cx-weight-semibold);
+  text-decoration:underline;text-underline-offset:3px;
+}
+.cx-btn--text:hover{color:var(--cx-color-brand-hover)}
+.cx-btn[disabled],.cx-btn--disabled{
+  background:var(--cx-color-disabled-bg);
+  color:var(--cx-color-disabled-text);
+  border-color:transparent;
+  cursor:not-allowed;
+  transform:none;
+}
+.cx-icon-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:var(--cx-control-height-md);height:var(--cx-control-height-md);
+  min-width:var(--cx-target-min);min-height:var(--cx-target-min);
+  border-radius:var(--cx-radius-sm);
+  border:var(--cx-border-width) solid transparent;
+  background:transparent;color:var(--cx-color-text-secondary);
+  cursor:pointer;
+  transition:background-color var(--cx-duration-base) var(--cx-ease-standard),color var(--cx-duration-base) var(--cx-ease-standard);
+}
+.cx-icon-btn:hover{background:var(--cx-color-surface-subtle);color:var(--cx-color-text)}
+
+/* =========================================================
+   10. CARDS / SURFACES
+   ========================================================= */
+.cx-card{
+  background:var(--cx-color-surface);
+  border:var(--cx-border-width) solid var(--cx-color-border);
+  border-radius:var(--cx-radius-md);
+  padding:var(--cx-space-5);
+  box-shadow:var(--cx-shadow-resting);
+  transition:border-color var(--cx-duration-base) var(--cx-ease-standard),box-shadow var(--cx-duration-base) var(--cx-ease-standard);
+}
+.cx-card:hover{border-color:var(--cx-color-brand);box-shadow:var(--cx-shadow-elevated)}
+.cx-card--feature{display:flex;flex-direction:column;gap:var(--cx-space-3)}
+.cx-card--info{background:var(--cx-color-surface-subtle);border-color:var(--cx-color-border)}
+.cx-card__icon{
+  width:40px;height:40px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:var(--cx-radius-sm);
+  background:color-mix(in srgb, var(--cx-color-brand) 12%, transparent);
+  color:var(--cx-color-brand);
+}
+.cx-card__title{font-size:var(--cx-text-base);font-weight:var(--cx-weight-bold);color:var(--cx-color-text)}
+.cx-card__desc{font-size:var(--cx-text-sm);color:var(--cx-color-text-secondary);line-height:var(--cx-leading-body)}
+
+.cx-notice{
+  display:flex;gap:var(--cx-space-3);
+  padding:var(--cx-space-4);
+  border-radius:var(--cx-radius-sm);
+  border-inline-start:var(--cx-border-width-strong) solid var(--cx-color-info);
+  background:var(--cx-color-info-bg);
+  color:var(--cx-graphite-900);
+  font-size:var(--cx-text-sm);
+}
+.cx-notice--success{border-inline-start-color:var(--cx-color-success);background:var(--cx-color-success-bg)}
+.cx-notice--warning{border-inline-start-color:var(--cx-color-warning);background:var(--cx-color-warning-bg)}
+.cx-notice--error{border-inline-start-color:var(--cx-color-error);background:var(--cx-color-error-bg)}
+
+.cx-badge{
+  display:inline-flex;align-items:center;
+  padding:var(--cx-space-1) var(--cx-space-3);
+  border-radius:var(--cx-radius-pill);
+  font-size:var(--cx-text-xs);
+  font-weight:var(--cx-weight-semibold);
+  background:var(--cx-color-surface-subtle);
+  border:var(--cx-border-width) solid var(--cx-color-border);
+  color:var(--cx-color-text-secondary);
+}
+
+.cx-divider{border:0;border-top:var(--cx-border-width) solid var(--cx-color-border);margin-block:var(--cx-space-6)}
+
+.cx-media-frame{
+  aspect-ratio:16/10;
+  border-radius:var(--cx-radius-lg);
+  border:var(--cx-border-width) solid var(--cx-color-border);
+  background:
+    linear-gradient(135deg,var(--cx-color-surface-subtle) 25%,transparent 25%) -8px 0/16px 16px,
+    linear-gradient(315deg,var(--cx-color-surface-subtle) 25%,transparent 25%) -8px 0/16px 16px,
+    var(--cx-color-surface);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--cx-color-text-muted);
+  font-size:var(--cx-text-sm);
+  overflow:hidden;
+}
+
+/* =========================================================
+   11. FORMS
+   ========================================================= */
+.cx-field{display:flex;flex-direction:column;gap:var(--cx-space-2)}
+.cx-label{font-size:var(--cx-text-sm);font-weight:var(--cx-weight-semibold);color:var(--cx-color-text)}
+.cx-input,.cx-textarea,.cx-select{
+  min-height:var(--cx-control-height-lg);
+  padding-inline:var(--cx-space-3);
+  border:var(--cx-border-width) solid var(--cx-color-border-strong);
+  border-radius:var(--cx-radius-sm);
+  background:var(--cx-color-surface);
+  color:var(--cx-color-text);
+  font-size:var(--cx-text-base);
+  font-family:inherit;
+  transition:border-color var(--cx-duration-base) var(--cx-ease-standard),box-shadow var(--cx-duration-base) var(--cx-ease-standard);
+}
+.cx-textarea{min-height:calc(var(--cx-control-height-lg) * 2.4);padding-block:var(--cx-space-3);resize:vertical}
+.cx-input:hover,.cx-textarea:hover,.cx-select:hover{border-color:var(--cx-color-text-secondary)}
+.cx-input:focus-visible,.cx-textarea:focus-visible,.cx-select:focus-visible{
+  border-color:var(--cx-color-brand);
+  box-shadow:var(--cx-shadow-focus);
+  outline:none;
+}
+.cx-input[disabled],.cx-textarea[disabled],.cx-select[disabled]{
+  background:var(--cx-color-disabled-bg);
+  color:var(--cx-color-disabled-text);
+  cursor:not-allowed;
+}
+.cx-input--invalid{border-color:var(--cx-color-error)}
+.cx-validation{display:flex;align-items:center;gap:var(--cx-space-2);font-size:var(--cx-text-xs);color:var(--cx-color-error)}
+
+/* =========================================================
+   12. LINKS
+   ========================================================= */
+.cx-link{color:var(--cx-color-accent);text-decoration:underline;text-underline-offset:3px} /* S004B: was --cx-color-brand, see .cx-eyebrow note above */
+.cx-link:hover{color:var(--cx-color-brand-hover)}
+
+/* =========================================================
+   13. RESPONSIVE FOUNDATION NOTES
+   ---------------------------------------------------------
+   Sizing is fluid via clamp() (§1, §3) so most compositions do not
+   depend on hard breakpoints. Two structural breakpoints are defined
+   for the small number of cases that genuinely need a layout change
+   (grid collapse, container padding floor) rather than fluid scaling:
+     - 640px  → single-column grid collapse
+     - 360px  → minimum-safe compact spacing (handled by
+                --cx-space-mobile-safe as a floor, not a breakpoint)
+   Verified compositions: 320, 360, 390, 430, 768, 1024, 1366, 1440,
+   1920 — see the S003 audit's viewport verification matrix.
+   ========================================================= */
+@media (max-width:640px){
+  .cx-container,.cx-container-narrow{padding-inline:var(--cx-space-mobile-safe)}
+}

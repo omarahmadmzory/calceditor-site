@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>[INTERNAL PREVIEW] CalcEditor Site Design System — S003</title>
+<link rel="stylesheet" href="../../assets/css/site-design-system.css">
+<style>
+  /* Preview-harness-only styling. Not part of the design system itself
+     and not intended for production use. */
+  body{margin:0}
+  .preview-banner{
+    background:#111;color:#fff;
+    padding:10px 16px;
+    font:600 13px/1.4 system-ui,sans-serif;
+    text-align:center;
+  }
+  .preview-banner strong{color:#ffd166}
+  .preview-toc{
+    display:flex;flex-wrap:wrap;gap:8px 16px;
+    font-size:13px;
+  }
+  .preview-toc a{color:inherit}
+  .swatch{
+    display:flex;flex-direction:column;gap:6px;
+    border:1px solid var(--cx-color-border);
+    border-radius:var(--cx-radius-sm);
+    padding:var(--cx-space-3);
+  }
+  .swatch__chip{height:44px;border-radius:var(--cx-radius-xs);border:1px solid rgba(0,0,0,.06)}
+  .kbd-hint{font-size:12px;color:var(--cx-color-text-muted)}
+</style>
+</head>
+<body class="cx-shell">
+
+<div class="preview-banner">
+  <strong>INTERNAL PREVIEW — NOT PRODUCTION.</strong>
+  This page demonstrates the S003 design-system foundation only. It is not linked from the live site and contains no production navigation, footer, or marketing copy.
+</div>
+
+<a class="cx-skip-link" href="#preview-main">Skip to preview content</a>
+
+<header class="cx-section" style="padding-block:var(--cx-space-6)">
+  <div class="cx-container cx-stack">
+    <p class="cx-eyebrow cx-eyebrow--bracketed">Design System Preview</p>
+    <h1 class="cx-h1">CalcEditor Site Design System — Foundation (S003)</h1>
+    <p class="cx-lead">Tokens and component primitives only. No final header, footer, Home layout, or calculator page is implemented here — see <code>docs/SITE_ROADMAP.md</code> for the phased plan.</p>
+    <nav class="preview-toc" aria-label="Preview sections">
+      <a href="#typography">Typography</a>
+      <a href="#color">Color</a>
+      <a href="#spacing">Spacing &amp; geometry</a>
+      <a href="#buttons">Buttons</a>
+      <a href="#cards">Cards &amp; grid</a>
+      <a href="#forms">Forms</a>
+      <a href="#notices">Notices &amp; badges</a>
+      <a href="#motion">Motion &amp; accessibility</a>
+      <a href="#arabic">Arabic sample region</a>
+      <a href="#narrow">320px-safe composition</a>
+    </nav>
+  </div>
+</header>
+
+<main id="preview-main">
+
+<!-- ============ TYPOGRAPHY ============ -->
+<section id="typography" class="cx-section" style="background:var(--cx-color-surface-subtle)">
+  <div class="cx-container cx-stack-lg">
+    <h2 class="cx-h2">Typography</h2>
+
+    <div class="cx-stack-sm">
+      <p class="cx-eyebrow cx-eyebrow--bracketed">Eyebrow label</p>
+      <p class="cx-display">Precision, by design.</p>
+      <h3 class="cx-h1" style="margin:0">Heading level 1</h3>
+      <h3 class="cx-h2" style="margin:0">Heading level 2</h3>
+      <h3 class="cx-h3" style="margin:0">Heading level 3</h3>
+      <p class="cx-lead">Lead paragraph — a short, slightly larger introduction sentence used beneath a heading to orient the reader before the body copy begins.</p>
+      <p class="cx-body">Body copy — the default reading size for paragraphs. CalcEditor pairs a restrained system-font display treatment with tabular numerals for anything numeric, so results and figures always read with instrument-like precision: <span class="cx-numeral">3.14159265</span>, <span class="cx-numeral">1,024</span>, <span class="cx-numeral">42%</span>.</p>
+      <p class="cx-muted">Muted copy — for secondary, lower-emphasis text such as timestamps or captions.</p>
+      <p class="cx-small">Small text — for fine print and meta information.</p>
+    </div>
+
+    <div class="cx-stack-sm">
+      <p class="cx-label" style="font-weight:700">Long-text stress test (English)</p>
+      <p class="cx-body">A structured visual math editor renders expressions the way you would write them by hand — fractions stack, exponents lift, roots nest — so that a long, multi-term scientific expression stays legible on a small screen instead of collapsing into an unreadable single line of plain-text math.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COLOR ============ -->
+<section id="color" class="cx-section">
+  <div class="cx-container cx-stack-lg">
+    <h2 class="cx-h2">Color roles</h2>
+    <div class="cx-grid">
+      <div class="swatch"><div class="swatch__chip" style="background:var(--cx-color-brand)"></div><span class="cx-small">brand</span></div>
+      <div class="swatch"><div class="swatch__chip" style="background:var(--cx-color-accent)"></div><span class="cx-small">accent</span></div>
+      <div class="swatch"><div class="swatch__chip" style="background:var(--cx-color-text)"></div><span class="cx-small">text</span></div>
+      <div class="swatch"><div class="swatch__chip" style="background:var(--cx-color-text-secondary)"></div><span class="cx-small">text-secondary</span></div>
+      <div class="swatch"><div class="swatch__chip" style="background:var(--cx-color-text-muted)"></div><span class="cx-small">text-muted</span></div>
+      <div class="swatch"><div class="swatch__chip" style="background:var(--cx-color-bg);border:1px solid var(--cx-color-border)"></div><span class="cx-small">bg</span></div>
+      <div class="swatch"><div class="swatch__chip" style="background:var(--cx-color-surface);border:1px solid var(--cx-color-border)"></div><span class="cx-small">surface</span></div>
+      <div class="swatch"><div class="swatch__chip" style="background:var(--cx-color-surface-subtle)"></div><span class="cx-small">surface-subtle</span></div>
+      <div class="swatch"><div class="swatch__chip" style="background:var(--cx-color-border)"></div><span class="cx-small">border</span></div>
+      <div class="swatch"><div class="swatch__chip" style="background:var(--cx-color-border-strong)"></div><span class="cx-small">border-strong</span></div>
+      <div class="swatch"><div class="swatch__chip" style="background:var(--cx-color-success)"></div><span class="cx-small">success</span></div>
+      <div class="swatch"><div class="swatch__chip" style="background:var(--cx-color-warning)"></div><span class="cx-small">warning</span></div>
+      <div class="swatch"><div class="swatch__chip" style="background:var(--cx-color-error)"></div><span class="cx-small">error</span></div>
+      <div class="swatch"><div class="swatch__chip" style="background:var(--cx-color-info)"></div><span class="cx-small">info</span></div>
+    </div>
+    <p class="cx-muted">Every text/background pairing shown throughout this preview uses only these role tokens — see the S003 audit for the contrast-ratio evidence per pairing.</p>
+  </div>
+</section>
+
+<!-- ============ SPACING / GEOMETRY ============ -->
+<section id="spacing" class="cx-section" style="background:var(--cx-color-surface-subtle)">
+  <div class="cx-container cx-stack-lg">
+    <h2 class="cx-h2">Spacing &amp; geometry</h2>
+    <div class="cx-stack-sm">
+      <div style="display:flex;align-items:center;gap:var(--cx-space-3)">
+        <div style="width:var(--cx-space-1);height:16px;background:var(--cx-color-brand)"></div><span class="cx-small">space-1 (4px)</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:var(--cx-space-3)">
+        <div style="width:var(--cx-space-3);height:16px;background:var(--cx-color-brand)"></div><span class="cx-small">space-3 (12px)</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:var(--cx-space-3)">
+        <div style="width:var(--cx-space-5);height:16px;background:var(--cx-color-brand)"></div><span class="cx-small">space-5 (24px)</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:var(--cx-space-3)">
+        <div style="width:var(--cx-space-8);height:16px;background:var(--cx-color-brand)"></div><span class="cx-small">space-8 (64px)</span>
+      </div>
+    </div>
+    <div class="cx-inline">
+      <div class="cx-card" style="border-radius:var(--cx-radius-xs);padding:var(--cx-space-3)"><span class="cx-small">radius-xs</span></div>
+      <div class="cx-card" style="border-radius:var(--cx-radius-sm);padding:var(--cx-space-3)"><span class="cx-small">radius-sm</span></div>
+      <div class="cx-card" style="border-radius:var(--cx-radius-md);padding:var(--cx-space-3)"><span class="cx-small">radius-md</span></div>
+      <div class="cx-card" style="border-radius:var(--cx-radius-lg);padding:var(--cx-space-3)"><span class="cx-small">radius-lg</span></div>
+      <div class="cx-badge" style="border-radius:var(--cx-radius-pill)">radius-pill</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BUTTONS ============ -->
+<section id="buttons" class="cx-section">
+  <div class="cx-container cx-stack-lg">
+    <h2 class="cx-h2">Buttons &amp; interactive states</h2>
+    <p class="kbd-hint">Tab through the controls below to see the focus-visible ring; hover with a mouse to see the hover transition; the last button in each row is a real <code>disabled</code> control.</p>
+    <div class="cx-inline">
+      <button class="cx-btn cx-btn--primary">Primary action</button>
+      <button class="cx-btn cx-btn--secondary">Secondary action</button>
+      <button class="cx-btn cx-btn--text">Text link button</button>
+      <button class="cx-btn cx-btn--primary" disabled>Disabled</button>
+    </div>
+    <div class="cx-inline">
+      <button class="cx-icon-btn" aria-label="Example icon action">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg>
+      </button>
+      <span class="cx-small">Icon-button shell (with <code>aria-label</code>)</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CARDS / GRID ============ -->
+<section id="cards" class="cx-section" style="background:var(--cx-color-surface-subtle)">
+  <div class="cx-container cx-stack-lg">
+    <h2 class="cx-h2">Cards &amp; responsive grid</h2>
+    <p class="cx-muted">Resize the window below 640px to see this grid collapse to one column.</p>
+    <div class="cx-grid">
+      <div class="cx-card cx-card--feature">
+        <div class="cx-card__icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v10M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9"/></svg>
+        </div>
+        <p class="cx-card__title">Sample feature card</p>
+        <p class="cx-card__desc">Representative placeholder copy for a feature description — not the real Home page content.</p>
+      </div>
+      <div class="cx-card cx-card--feature">
+        <div class="cx-card__icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <p class="cx-card__title">Second sample card</p>
+        <p class="cx-card__desc">Cards use a hairline border at rest and a brand-colored border plus a soft elevation shadow on hover.</p>
+      </div>
+      <div class="cx-card cx-card--info">
+        <p class="cx-card__title">Info surface card</p>
+        <p class="cx-card__desc">A subtler surface for secondary information blocks.</p>
+      </div>
+    </div>
+    <div class="cx-media-frame" role="img" aria-label="Placeholder for a future app screenshot">Placeholder media frame — no external image used</div>
+  </div>
+</section>
+
+<!-- ============ FORMS ============ -->
+<section id="forms" class="cx-section">
+  <div class="cx-container cx-stack-lg">
+    <h2 class="cx-h2">Forms</h2>
+    <div class="cx-grid">
+      <div class="cx-field">
+        <label class="cx-label" for="prev-name">Name</label>
+        <input class="cx-input" id="prev-name" type="text" placeholder="Jane Student">
+      </div>
+      <div class="cx-field">
+        <label class="cx-label" for="prev-topic">Topic</label>
+        <select class="cx-select" id="prev-topic">
+          <option>General question</option>
+          <option>Closed beta access</option>
+          <option>Privacy question</option>
+        </select>
+      </div>
+      <div class="cx-field">
+        <label class="cx-label" for="prev-msg">Message</label>
+        <textarea class="cx-textarea" id="prev-msg" placeholder="Write your message…"></textarea>
+      </div>
+      <div class="cx-field">
+        <label class="cx-label" for="prev-invalid">Example invalid field</label>
+        <input class="cx-input cx-input--invalid" id="prev-invalid" type="email" value="not-an-email" aria-invalid="true" aria-describedby="prev-invalid-msg">
+        <p class="cx-validation" id="prev-invalid-msg">Enter a valid email address.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NOTICES / BADGES ============ -->
+<section id="notices" class="cx-section" style="background:var(--cx-color-surface-subtle)">
+  <div class="cx-container cx-stack-lg">
+    <h2 class="cx-h2">Notices &amp; badges</h2>
+    <div class="cx-stack-sm">
+      <div class="cx-notice cx-notice--success">Success notice — representative text only.</div>
+      <div class="cx-notice cx-notice--warning">Warning notice — representative text only.</div>
+      <div class="cx-notice cx-notice--error">Error notice — representative text only.</div>
+      <div class="cx-notice">Informational notice — representative text only.</div>
+    </div>
+    <div class="cx-inline">
+      <span class="cx-badge">Badge</span>
+      <span class="cx-badge">Android</span>
+      <span class="cx-badge">Closed Beta</span>
+    </div>
+    <hr class="cx-divider">
+    <p class="cx-small">Divider element shown above.</p>
+  </div>
+</section>
+
+<!-- ============ MOTION / ACCESSIBILITY ============ -->
+<section id="motion" class="cx-section">
+  <div class="cx-container cx-stack-lg">
+    <h2 class="cx-h2">Motion &amp; accessibility</h2>
+    <p class="cx-body">All transitions in this system use the <code>--cx-duration-*</code>/<code>--cx-ease-*</code> tokens (120–280ms, standard/ease-out curves). Hover a button above to feel the restrained transition speed.</p>
+    <div class="cx-notice">
+      This page respects <code>prefers-reduced-motion: reduce</code>: enabling that OS/browser setting collapses all transition and scroll-behavior durations to effectively zero, with no JavaScript required. No parallax, autoplay, or scroll-hijacking exists anywhere in this system.
+    </div>
+    <p class="cx-body">Press <kbd>Tab</kbd> from the top of the page to reach the "Skip to preview content" link, then continue tabbing through the buttons and form fields above to verify every interactive element receives a visible focus ring.</p>
+  </div>
+</section>
+
+<!-- ============ ARABIC SAMPLE REGION ============ -->
+<section id="arabic" lang="ar" dir="rtl" class="cx-section" style="background:var(--cx-color-surface-subtle)">
+  <div class="cx-container cx-stack-lg">
+    <h2 class="cx-h2">عيّنة باللغة العربية</h2>
+    <p class="cx-eyebrow cx-eyebrow--bracketed">تسمية توضيحية</p>
+    <p class="cx-display">الدقة، بالتصميم.</p>
+    <p class="cx-lead">فقرة تمهيدية قصيرة تُستخدم أسفل العنوان الرئيسي لتوجيه القارئ قبل بداية النص الأساسي.</p>
+    <p class="cx-body">نص أساسي طويل لاختبار القراءة: يعرض محرر الرياضيات المرئي التعبيرات كما تُكتب بخط اليد — الكسور تتكدس، والأسس ترتفع، والجذور تتشعب — بحيث يبقى التعبير العلمي الطويل متعدد الحدود واضحاً وسهل القراءة على شاشة صغيرة بدلاً من أن ينهار إلى سطر نصي غير مقروء.</p>
+    <p class="cx-muted">نص ثانوي منخفض التركيز، مثل الطوابع الزمنية أو التسميات التوضيحية.</p>
+
+    <div class="cx-inline">
+      <button class="cx-btn cx-btn--primary">إجراء أساسي</button>
+      <button class="cx-btn cx-btn--secondary">إجراء ثانوي</button>
+      <button class="cx-btn cx-btn--text">زر رابط نصي</button>
+      <button class="cx-btn cx-btn--primary" disabled>معطّل</button>
+    </div>
+
+    <div class="cx-grid">
+      <div class="cx-card cx-card--feature">
+        <div class="cx-card__icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <p class="cx-card__title">بطاقة عيّنة</p>
+        <p class="cx-card__desc">نص تجريبي تمثيلي لوصف ميزة — وليس محتوى الصفحة الرئيسية الفعلي.</p>
+      </div>
+      <div class="cx-card cx-card--info">
+        <p class="cx-card__title">بطاقة معلومات</p>
+        <p class="cx-card__desc">سطح أهدأ لكتل المعلومات الثانوية.</p>
+      </div>
+    </div>
+
+    <div class="cx-notice cx-notice--success">إشعار نجاح — نص تمثيلي فقط.</div>
+
+    <div class="cx-field">
+      <label class="cx-label" for="prev-name-ar">الاسم</label>
+      <input class="cx-input" id="prev-name-ar" type="text" placeholder="سارة الطالبة">
+    </div>
+
+    <p class="cx-small">ملاحظة: لا يُطبَّق أي تباعد بين الأحرف (letter-spacing) على النصوص العربية، ولا تُستخدم الأرقام الجدولية (tabular numerals) إلا على المحتوى الرقمي اللاتيني الصريح.</p>
+  </div>
+</section>
+
+<!-- ============ 320px-SAFE COMPOSITION ============ -->
+<section id="narrow" class="cx-section" style="background:var(--cx-color-surface-subtle)">
+  <div class="cx-container-narrow cx-stack">
+    <h2 class="cx-h2">320px-safe composition</h2>
+    <p class="cx-muted">This block uses <code>.cx-container-narrow</code> (reading-width max) combined with mobile-safe padding — resize the viewport to 320px wide and confirm no horizontal scrollbar appears and no text is clipped.</p>
+    <div class="cx-card cx-card--feature">
+      <p class="cx-card__title">Compact card at narrow width</p>
+      <p class="cx-card__desc">Even at 320px, the card padding, button targets (44px minimum), and text remain legible without overflow.</p>
+      <button class="cx-btn cx-btn--primary">Fits at 320px</button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="cx-section" style="padding-block:var(--cx-space-6);border-top:1px solid var(--cx-color-border)">
+  <div class="cx-container">
+    <p class="cx-small">Internal S003 preview — <span class="cx-visually-hidden">end of design system preview content, </span>not the production footer. See <code>docs/SITE_ROADMAP_D_GOVERNANCE_AND_PROCESS.md</code> for the Site command template and <code>docs/SITE_ROADMAP.md</code> §37 for the S004+ sequence.</p>
+  </div>
+</footer>
+
+</body>
+</html>

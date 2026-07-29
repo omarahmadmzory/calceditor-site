@@ -6,13 +6,19 @@
   <title>CalcEditor — محرّر الرياضيات العلمي</title>
   <meta name="description" content="تطبيق CalcEditor هو حاسبة علمية تعليمية لأجهزة أندرويد. تعمل بالكامل محلياً على الجهاز. لا تتبع. لا إعلانات.">
   <meta name="robots" content="index, follow">
-  <script src="assets/site.js?v=1691b" charset="UTF-8"></script>
+  <script src="assets/site.js?v=s004" charset="UTF-8"></script>
   <link rel="stylesheet" href="assets/site.css?v=1691b">
+  <link rel="stylesheet" href="assets/css/site-design-system.css?v=s004">
+  <link rel="stylesheet" href="assets/css/site-shell.css?v=s004">
 </head>
 <body>
 
-<!-- Navigation -->
-<nav id="site-nav"></nav>
+<a href="#main-content" class="cx-skip-link">تخطَّ إلى المحتوى الرئيسي</a>
+
+<!-- Site shell: shared header/nav (rendered by assets/site.js) -->
+<header id="site-header"></header>
+
+<main id="main-content">
 
 <!-- ── Hero ───────────────────────────────────────────────── -->
 <section class="hero">
@@ -172,19 +178,10 @@
   </div>
 </section>
 
-<!-- ── Footer ─────────────────────────────────────────────── -->
-<footer>
-  <div class="footer-inner">
-    <div>
-      <div class="footer-brand">Calc<span>Editor</span> &nbsp;&mdash;&nbsp; محرّر الرياضيات العلمي</div>
-      <div class="footer-copy">&copy; ٢٠٢٦ عمر أ. الكوردي (Omar A. Kurdi). جميع الحقوق محفوظة.</div>
-    </div>
-    <div class="footer-links">
-      <a href="privacy-policy/index_ar.html">سياسة الخصوصية</a>
-      <a href="mailto:Omarahmadmzory@gmail.com">تواصل معنا</a>
-    </div>
-  </div>
-</footer>
+</main>
+
+<!-- Site shell: shared footer (rendered by assets/site.js) -->
+<footer id="site-footer"></footer>
 
 <!-- ── Closed Beta Info CSS-based Modal ── -->
 <div id="beta-modal" class="modal">
