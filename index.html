@@ -8,10 +8,11 @@
   <meta name="robots" content="index, follow">
   <script src="assets/site.js?v=s004" charset="UTF-8"></script>
   <link rel="stylesheet" href="assets/site.css?v=1691b">
-  <link rel="stylesheet" href="assets/css/site-design-system.css?v=s004">
-  <link rel="stylesheet" href="assets/css/site-shell.css?v=s004">
+  <link rel="stylesheet" href="assets/css/site-design-system.css?v=s005">
+  <link rel="stylesheet" href="assets/css/site-shell.css?v=s005">
+  <link rel="stylesheet" href="assets/css/site-home.css?v=s005">
 </head>
-<body>
+<body class="cx-shell">
 
 <a href="#main-content" class="cx-skip-link">Skip to main content</a>
 
@@ -21,114 +22,125 @@
 <main id="main-content">
 
 <!-- ── Hero ───────────────────────────────────────────────── -->
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-badge">Android App &nbsp;·&nbsp; Closed Beta Coming Soon</div>
+<section class="cx-section home-hero">
+  <div class="cx-container home-hero__inner">
+    <p class="cx-badge">Android App &nbsp;·&nbsp; Closed Beta Coming Soon</p>
 
-    <h1>The <em>Scientific</em><br>Math Editor</h1>
+    <h1 class="cx-display home-hero__heading">The <span class="home-accent-word">Scientific</span> Math Editor</h1>
 
-    <p class="hero-tagline">CalcEditor — powerful scientific calculator for Android</p>
+    <p class="cx-lead home-hero__tagline">CalcEditor — powerful scientific calculator for Android</p>
 
-    <p class="hero-desc">
+    <p class="cx-body home-hero__desc">
       A full-featured educational scientific calculator with a clean math editor,
       customizable themes, calculation history, and selected science &amp; statistics tools.
       No accounts. No tracking. Everything stays on your device.
     </p>
 
-    <div class="hero-actions">
-      <a href="#beta-modal" class="btn-primary">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+    <div class="cx-inline home-hero__actions">
+      <a href="#beta-modal" class="cx-btn cx-btn--primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
         Get Early Access
       </a>
-      <a href="#features" class="btn-secondary">
+      <a href="#features" class="cx-btn cx-btn--secondary">
         Explore Features
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
     </div>
   </div>
 </section>
 
 <!-- ── Trust strip ────────────────────────────────────────── -->
-<div class="trust-strip">
-  <div class="trust-inner">
-    <div class="trust-item">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+<div class="home-trust">
+  <div class="cx-container home-trust__list">
+    <span class="home-trust__item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
       No data collected
-    </div>
-    <div class="trust-item">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    </span>
+    <span class="home-trust__item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       No tracking
-    </div>
-    <div class="trust-item">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    </span>
+    <span class="home-trust__item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
       Works offline
-    </div>
-    <div class="trust-item">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    </span>
+    <span class="home-trust__item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
       No account required
-    </div>
-    <div class="trust-item">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+    </span>
+    <span class="home-trust__item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
       Android
-    </div>
+    </span>
   </div>
 </div>
 
+<!-- ── Product presentation ──────────────────────────────── -->
+<section class="cx-section home-product">
+  <div class="cx-container">
+    <div class="cx-media-frame home-product__frame" role="img" aria-label="Product screenshot placeholder — CalcEditor's structured math editor. A real screenshot has not been added to the Site yet.">
+      Product screenshot coming soon
+    </div>
+  </div>
+</section>
+
 <!-- ── Features ───────────────────────────────────────────── -->
-<section class="features" id="features">
-  <div class="section-inner">
-    <p class="section-label">What&rsquo;s inside</p>
-    <h2 class="section-title">Everything you need to calculate</h2>
-    <p class="section-sub">From basic arithmetic to scientific functions and selected engineering tools — in one clean, focused app.</p>
+<section class="cx-section home-surface-subtle" id="features">
+  <div class="cx-container">
+    <div class="home-features__intro">
+      <p class="cx-eyebrow cx-eyebrow--bracketed">What&rsquo;s inside</p>
+      <h2 class="cx-h2">Everything you need to calculate</h2>
+      <p class="cx-lead">From basic arithmetic to scientific functions and selected engineering tools — in one clean, focused app.</p>
+    </div>
 
-    <div class="features-grid">
+    <div class="cx-grid home-features__grid">
 
-      <div class="feature-card">
-        <div class="feature-icon">
+      <div class="cx-card cx-card--feature">
+        <div class="cx-card__icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="12" y1="10" x2="14" y2="10"/><line x1="16" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="12" y1="14" x2="14" y2="14"/><line x1="16" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="10" y2="18"/><line x1="12" y1="18" x2="14" y2="18"/></svg>
         </div>
-        <div class="feature-title">Scientific Calculator</div>
-        <div class="feature-desc">sin, cos, tan, log, ln, powers, roots, factorial — with a structured visual math editor that shows expressions clearly.</div>
+        <p class="cx-card__title">Scientific Calculator</p>
+        <p class="cx-card__desc">sin, cos, tan, log, ln, powers, roots, factorial — with a structured visual math editor that shows expressions clearly.</p>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-icon">
+      <div class="cx-card cx-card--feature">
+        <div class="cx-card__icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
-        <div class="feature-title">Calculation History</div>
-        <div class="feature-desc">Every calculation is saved locally. Browse, recall, and reuse past expressions — all stored privately on your device.</div>
+        <p class="cx-card__title">Calculation History</p>
+        <p class="cx-card__desc">Every calculation is saved locally. Browse, recall, and reuse past expressions — all stored privately on your device.</p>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-icon">
+      <div class="cx-card cx-card--feature">
+        <div class="cx-card__icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="3.5" fill="currentColor" stroke="none" opacity="0.4"/><circle cx="19.5" cy="14.5" r="3.5" fill="currentColor" stroke="none" opacity="0.6"/><circle cx="6.5" cy="16.5" r="3.5" fill="currentColor" stroke="none" opacity="0.8"/></svg>
         </div>
-        <div class="feature-title">5 Customizable Themes</div>
-        <div class="feature-desc">Choose from Domino, Graphite, Midnight, Porcelain, and Sandstone. Every surface adapts cleanly across all themes.</div>
+        <p class="cx-card__title">5 Customizable Themes</p>
+        <p class="cx-card__desc">Choose from Domino, Graphite, Midnight, Porcelain, and Sandstone. Every surface adapts cleanly across all themes.</p>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-icon">
+      <div class="cx-card cx-card--feature">
+        <div class="cx-card__icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
         </div>
-        <div class="feature-title">Health &amp; Science Tools</div>
-        <div class="feature-desc">BMI and BMR calculators, unit conversion, area calculations, and selected statistics tools — for study and everyday use.</div>
+        <p class="cx-card__title">Health &amp; Science Tools</p>
+        <p class="cx-card__desc">BMI and BMR calculators, unit conversion, area calculations, and selected statistics tools — for study and everyday use.</p>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-icon">
+      <div class="cx-card cx-card--feature">
+        <div class="cx-card__icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
         </div>
-        <div class="feature-title">Local Text Recognition</div>
-        <div class="feature-desc">Point your camera at a handwritten or printed expression and import it directly into the editor. Processed entirely on-device — nothing is uploaded.</div>
+        <p class="cx-card__title">Local Text Recognition</p>
+        <p class="cx-card__desc">Point your camera at a handwritten or printed expression and import it directly into the editor. Processed entirely on-device — nothing is uploaded.</p>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-icon">
+      <div class="cx-card cx-card--feature">
+        <div class="cx-card__icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
         </div>
-        <div class="feature-title">Statistics &amp; Probability</div>
-        <div class="feature-desc">Descriptive statistics, one-sample t-test, sample size estimation, and more — for coursework and data review.</div>
+        <p class="cx-card__title">Statistics &amp; Probability</p>
+        <p class="cx-card__desc">Descriptive statistics, one-sample t-test, sample size estimation, and more — for coursework and data review.</p>
       </div>
 
     </div>
@@ -136,49 +148,47 @@
 </section>
 
 <!-- ── Privacy ─────────────────────────────────────────────── -->
-<section class="privacy-section" id="privacy">
-  <div class="privacy-inner">
-    <h2>Private by design</h2>
-    <p>
+<section class="cx-section" id="privacy">
+  <div class="cx-container-narrow home-privacy">
+    <h2 class="cx-h2">Private by design</h2>
+    <p class="cx-body">
       CalcEditor stores everything locally on your device.
       No accounts. No cloud sync. No analytics. No ads.
       Your calculations, history, and health data stay with you.
     </p>
-    <div class="privacy-chips">
-      <span class="chip">No data collected</span>
-      <span class="chip">No accounts</span>
-      <span class="chip">No analytics</span>
-      <span class="chip">No ads</span>
-      <span class="chip">No cloud OCR</span>
-      <span class="chip">Works offline</span>
-      <span class="chip">Local history only</span>
+    <div class="cx-inline home-privacy__chips">
+      <span class="cx-badge">No data collected</span>
+      <span class="cx-badge">No accounts</span>
+      <span class="cx-badge">No analytics</span>
+      <span class="cx-badge">No ads</span>
+      <span class="cx-badge">No cloud OCR</span>
+      <span class="cx-badge">Works offline</span>
+      <span class="cx-badge">Local history only</span>
     </div>
-    <p style="margin-top:28px; font-size:0.82rem; color:rgba(255,255,255,0.4);">
-      <a href="privacy-policy/index.html" style="color:rgba(167,139,250,0.85);">Read the full privacy policy &rarr;</a>
+    <p class="cx-small home-privacy__more">
+      <a href="privacy-policy/index.html" class="cx-link">Read the full privacy policy &rarr;</a>
     </p>
   </div>
 </section>
 
 <!-- ── Beta CTA ────────────────────────────────────────────── -->
-<section class="beta-section" id="beta">
-  <div class="beta-inner">
-    <div class="soon-tag">Closed Beta</div>
-    <h2>Coming to Google Play</h2>
-    <p>
+<section class="cx-section home-beta home-surface-subtle">
+  <div class="cx-container-narrow">
+    <span class="cx-badge">Closed Beta</span>
+    <h2 class="cx-h2">Coming to Google Play</h2>
+    <p class="cx-body">
       CalcEditor v1.0 is completing its closed beta phase and will be
       available on Google Play soon. Educational use. Free to download.
     </p>
-    <a href="#beta-modal" class="play-badge-link">
-      <div class="play-badge">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M3 20.5v-17c0-.83 1-.83 1.5-.5l14 8.5-14 8.5c-.5.33-1.5.33-1.5-.5z" opacity="0.7"/></svg>
-        <div>
-          <span class="play-badge-sub">Coming soon on</span>
-          Google Play
-        </div>
-      </div>
+    <a href="#beta-modal" class="home-beta__playbadge">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 20.5v-17c0-.83 1-.83 1.5-.5l14 8.5-14 8.5c-.5.33-1.5.33-1.5-.5z" opacity="0.7"/></svg>
+      <span>
+        <span class="home-beta__playbadge-sub">Coming soon on</span>
+        Google Play
+      </span>
     </a>
-    <p style="margin-top: 20px; font-size: 0.8rem; color: var(--gray-500);">
-      Questions? <a href="mailto:Omarahmadmzory@gmail.com">Omarahmadmzory@gmail.com</a>
+    <p class="cx-small home-beta__note">
+      Questions? <a href="mailto:Omarahmadmzory@gmail.com" class="cx-link">Omarahmadmzory@gmail.com</a>
     </p>
   </div>
 </section>

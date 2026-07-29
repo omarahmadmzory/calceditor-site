@@ -8,10 +8,11 @@
   <meta name="robots" content="index, follow">
   <script src="assets/site.js?v=s004" charset="UTF-8"></script>
   <link rel="stylesheet" href="assets/site.css?v=1691b">
-  <link rel="stylesheet" href="assets/css/site-design-system.css?v=s004">
-  <link rel="stylesheet" href="assets/css/site-shell.css?v=s004">
+  <link rel="stylesheet" href="assets/css/site-design-system.css?v=s005">
+  <link rel="stylesheet" href="assets/css/site-shell.css?v=s005">
+  <link rel="stylesheet" href="assets/css/site-home.css?v=s005">
 </head>
-<body>
+<body class="cx-shell">
 
 <a href="#main-content" class="cx-skip-link">تخطَّ إلى المحتوى الرئيسي</a>
 
@@ -21,112 +22,123 @@
 <main id="main-content">
 
 <!-- ── Hero ───────────────────────────────────────────────── -->
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-badge">تطبيق أندرويد &nbsp;·&nbsp; النسخة التجريبية المغلقة قريباً</div>
+<section class="cx-section home-hero">
+  <div class="cx-container home-hero__inner">
+    <p class="cx-badge">تطبيق أندرويد &nbsp;·&nbsp; النسخة التجريبية المغلقة قريباً</p>
 
-    <h1>محرّر الرياضيات<br><em>العلمي</em></h1>
+    <h1 class="cx-display home-hero__heading">محرّر الرياضيات <span class="home-accent-word">العلمي</span></h1>
 
-    <p class="hero-tagline">CalcEditor — حاسبة علمية متكاملة لأجهزة أندرويد</p>
+    <p class="cx-lead home-hero__tagline">CalcEditor — حاسبة علمية متكاملة لأجهزة أندرويد</p>
 
-    <p class="hero-desc">
+    <p class="cx-body home-hero__desc">
       حاسبة علمية وتعليمية متكاملة تمنحك محرراً رياضياً مرئياً فائق الوضوح، مع سمات مخصصة وسجل للحسابات وأدوات علمية وإحصائية منتقاة بعناية. لا تتطلب إنشاء حساب، ولا تتضمن أي تتبع، وتبقى جميع بياناتك وحساباتك محفوظة بالكامل على جهازك.
     </p>
 
-    <div class="hero-actions">
-      <a href="#beta-modal" class="btn-primary">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+    <div class="cx-inline home-hero__actions">
+      <a href="#beta-modal" class="cx-btn cx-btn--primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
         طلب الوصول المبكر
       </a>
-      <a href="#features" class="btn-secondary">
+      <a href="#features" class="cx-btn cx-btn--secondary">
         استكشف الميزات
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="transform: scaleX(-1);"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="cx-mirror-rtl" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
     </div>
   </div>
 </section>
 
 <!-- ── Trust strip ────────────────────────────────────────── -->
-<div class="trust-strip">
-  <div class="trust-inner">
-    <div class="trust-item">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+<div class="home-trust">
+  <div class="cx-container home-trust__list">
+    <span class="home-trust__item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
       لا يتم جمع أي بيانات
-    </div>
-    <div class="trust-item">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    </span>
+    <span class="home-trust__item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       خالٍ تماماً من أدوات التتبع
-    </div>
-    <div class="trust-item">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    </span>
+    <span class="home-trust__item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
       يعمل بالكامل دون اتصال بالإنترنت
-    </div>
-    <div class="trust-item">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    </span>
+    <span class="home-trust__item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
       لا يتطلب إنشاء حساب
-    </div>
-    <div class="trust-item">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+    </span>
+    <span class="home-trust__item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
       أندرويد
-    </div>
+    </span>
   </div>
 </div>
 
+<!-- ── Product presentation ──────────────────────────────── -->
+<section class="cx-section home-product">
+  <div class="cx-container">
+    <div class="cx-media-frame home-product__frame" role="img" aria-label="عنصر نائب لصورة من التطبيق — محرر الرياضيات المرئي في CalcEditor. لم تُضَف صورة فعلية للموقع بعد.">
+      لقطة شاشة للتطبيق قريباً
+    </div>
+  </div>
+</section>
+
 <!-- ── Features ───────────────────────────────────────────── -->
-<section class="features" id="features">
-  <div class="section-inner">
-    <p class="section-label">ميزات التطبيق</p>
-    <h2 class="section-title">كل ما تحتاجه لإجراء حساباتك</h2>
-    <p class="section-sub">من العمليات الحسابية الأساسية إلى الدوال العلمية والأدوات المتخصصة المنتقاة بعناية — في تطبيق واحد بواجهة انسيابية ومريحة.</p>
+<section class="cx-section home-surface-subtle" id="features">
+  <div class="cx-container">
+    <div class="home-features__intro">
+      <p class="cx-eyebrow cx-eyebrow--bracketed">ميزات التطبيق</p>
+      <h2 class="cx-h2">كل ما تحتاجه لإجراء حساباتك</h2>
+      <p class="cx-lead">من العمليات الحسابية الأساسية إلى الدوال العلمية والأدوات المتخصصة المنتقاة بعناية — في تطبيق واحد بواجهة انسيابية ومريحة.</p>
+    </div>
 
-    <div class="features-grid">
+    <div class="cx-grid home-features__grid">
 
-      <div class="feature-card">
-        <div class="feature-icon">
+      <div class="cx-card cx-card--feature">
+        <div class="cx-card__icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="12" y1="10" x2="14" y2="10"/><line x1="16" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="12" y1="14" x2="14" y2="14"/><line x1="16" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="10" y2="18"/><line x1="12" y1="18" x2="14" y2="18"/></svg>
         </div>
-        <div class="feature-title">حاسبة علمية متكاملة</div>
-        <div class="feature-desc">حساب الدوال المثلثية (sin، cos، tan)، اللوغاريتمات، القوى، الجذور، والمضروب — مع محرر رياضيات مرئي يعرض التعبيرات الرياضية بوضوح وسلاسة.</div>
+        <p class="cx-card__title">حاسبة علمية متكاملة</p>
+        <p class="cx-card__desc">حساب الدوال المثلثية (sin، cos، tan)، اللوغاريتمات، القوى، الجذور، والمضروب — مع محرر رياضيات مرئي يعرض التعبيرات الرياضية بوضوح وسلاسة.</p>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-icon">
+      <div class="cx-card cx-card--feature">
+        <div class="cx-card__icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
-        <div class="feature-title">سجل الحسابات</div>
-        <div class="feature-desc">تُحفظ جميع عملياتك محلياً على جهازك؛ لتمكنك من تصفح تعبيراتك السابقة واسترجاعها وإعادة استخدامها بكل سهولة وخصوصية وأمان.</div>
+        <p class="cx-card__title">سجل الحسابات</p>
+        <p class="cx-card__desc">تُحفظ جميع عملياتك محلياً على جهازك؛ لتمكنك من تصفح تعبيراتك السابقة واسترجاعها وإعادة استخدامها بكل سهولة وخصوصية وأمان.</p>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-icon">
+      <div class="cx-card cx-card--feature">
+        <div class="cx-card__icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="3.5" fill="currentColor" stroke="none" opacity="0.4"/><circle cx="19.5" cy="14.5" r="3.5" fill="currentColor" stroke="none" opacity="0.6"/><circle cx="6.5" cy="16.5" r="3.5" fill="currentColor" stroke="none" opacity="0.8"/></svg>
         </div>
-        <div class="feature-title">5 سمات فريدة ومميزة</div>
-        <div class="feature-desc">اختر من بين سمات دومينو، وجرافيت، وميدنايت، وبورسلين، وساندستون. واجهة متناسقة تتكيف بسلاسة وجمالية فائقة مع كل خيار.</div>
+        <p class="cx-card__title">5 سمات فريدة ومميزة</p>
+        <p class="cx-card__desc">اختر من بين سمات دومينو، وجرافيت، وميدنايت، وبورسلين، وساندستون. واجهة متناسقة تتكيف بسلاسة وجمالية فائقة مع كل خيار.</p>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-icon">
+      <div class="cx-card cx-card--feature">
+        <div class="cx-card__icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
         </div>
-        <div class="feature-title">أدوات الصحة والعلوم</div>
-        <div class="feature-desc">حاسبات مخصصة لمؤشر كتلة الجسم (BMI) ومعدل الأيض الأساسي (BMR)، بالإضافة إلى أدوات تحويل الوحدات وحساب المساحات والإحصاء — للدراسة والعمل والاستخدام اليومي.</div>
+        <p class="cx-card__title">أدوات الصحة والعلوم</p>
+        <p class="cx-card__desc">حاسبات مخصصة لمؤشر كتلة الجسم (BMI) ومعدل الأيض الأساسي (BMR)، بالإضافة إلى أدوات تحويل الوحدات وحساب المساحات والإحصاء — للدراسة والعمل والاستخدام اليومي.</p>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-icon">
+      <div class="cx-card cx-card--feature">
+        <div class="cx-card__icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
         </div>
-        <div class="feature-title">التعرف الضوئي المحلي على النصوص (OCR)</div>
-        <div class="feature-desc">وجه الكاميرا نحو أي تعبير رياضي، سواء كان مكتوباً بخط اليد أو مطبوعاً، واستورده مباشرة إلى المحرر. تتم المعالجة بالكامل محلياً على جهازك دون الحاجة للاتصال بالإنترنت.</div>
+        <p class="cx-card__title">التعرف الضوئي المحلي على النصوص (OCR)</p>
+        <p class="cx-card__desc">وجه الكاميرا نحو أي تعبير رياضي، سواء كان مكتوباً بخط اليد أو مطبوعاً، واستورده مباشرة إلى المحرر. تتم المعالجة بالكامل محلياً على جهازك دون الحاجة للاتصال بالإنترنت.</p>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-icon">
+      <div class="cx-card cx-card--feature">
+        <div class="cx-card__icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
         </div>
-        <div class="feature-title">أدوات الإحصاء والاحتمالات</div>
-        <div class="feature-desc">حساب الإحصاء الوصفي، واختبار t لعينة واحدة، وتقدير حجم العينة، وغيرها — لمساعدتك في أداء فروضك الدراسية وتحليل البيانات بدقة.</div>
+        <p class="cx-card__title">أدوات الإحصاء والاحتمالات</p>
+        <p class="cx-card__desc">حساب الإحصاء الوصفي، واختبار t لعينة واحدة، وتقدير حجم العينة، وغيرها — لمساعدتك في أداء فروضك الدراسية وتحليل البيانات بدقة.</p>
       </div>
 
     </div>
@@ -134,46 +146,44 @@
 </section>
 
 <!-- ── Privacy ─────────────────────────────────────────────── -->
-<section class="privacy-section" id="privacy">
-  <div class="privacy-inner">
-    <h2>مصمم مع مراعاة الخصوصية</h2>
-    <p>
+<section class="cx-section" id="privacy">
+  <div class="cx-container-narrow home-privacy">
+    <h2 class="cx-h2">مصمم مع مراعاة الخصوصية</h2>
+    <p class="cx-body">
       يحفظ تطبيق CalcEditor جميع بياناتك محلياً على جهازك، دون الحاجة لإنشاء حساب، وبلا مزامنة سحابية أو أدوات تحليل أو إعلانات مزعجة. عملياتك الحسابية وسجل نشاطك وبياناتك الصحية تبقى ملكك بالكامل وتحت إشرافك بأمان تام.
     </p>
-    <div class="privacy-chips">
-      <span class="chip">لا يتم جمع أي بيانات</span>
-      <span class="chip">لا يتطلب إنشاء حساب</span>
-      <span class="chip">خالٍ من أدوات التحليل والتتبع</span>
-      <span class="chip">خالٍ تماماً من الإعلانات</span>
-      <span class="chip">معالجة محلية بالكامل</span>
-      <span class="chip">يعمل بالكامل دون اتصال بالإنترنت</span>
-      <span class="chip">سجل عمليات محلي فقط</span>
+    <div class="cx-inline home-privacy__chips">
+      <span class="cx-badge">لا يتم جمع أي بيانات</span>
+      <span class="cx-badge">لا يتطلب إنشاء حساب</span>
+      <span class="cx-badge">خالٍ من أدوات التحليل والتتبع</span>
+      <span class="cx-badge">خالٍ تماماً من الإعلانات</span>
+      <span class="cx-badge">معالجة محلية بالكامل</span>
+      <span class="cx-badge">يعمل بالكامل دون اتصال بالإنترنت</span>
+      <span class="cx-badge">سجل عمليات محلي فقط</span>
     </div>
-    <p style="margin-top:28px; font-size:0.82rem; color:rgba(255,255,255,0.4);">
-      <a href="privacy-policy/index_ar.html" style="color:rgba(167,139,250,0.85);">اقرأ سياسة الخصوصية الكاملة &larr;</a>
+    <p class="cx-small home-privacy__more">
+      <a href="privacy-policy/index_ar.html" class="cx-link">اقرأ سياسة الخصوصية الكاملة &larr;</a>
     </p>
   </div>
 </section>
 
 <!-- ── Beta CTA ────────────────────────────────────────────── -->
-<section class="beta-section" id="beta">
-  <div class="beta-inner">
-    <div class="soon-tag">النسخة التجريبية المغلقة</div>
-    <h2>قريباً على متجر Google Play</h2>
-    <p>
+<section class="cx-section home-beta home-surface-subtle">
+  <div class="cx-container-narrow">
+    <span class="cx-badge">النسخة التجريبية المغلقة</span>
+    <h2 class="cx-h2">قريباً على متجر Google Play</h2>
+    <p class="cx-body">
       يقترب تطبيق CalcEditor في إصداره الأول من إكمال مرحلته التجريبية المغلقة، وسيكون متاحاً قريباً للجميع على متجر Google Play. التطبيق مصمم للاستخدام التعليمي وهو مجاني تماماً للتحميل.
     </p>
-    <a href="#beta-modal" class="play-badge-link">
-      <div class="play-badge">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="transform: scaleX(-1);"><path d="M3 20.5v-17c0-.83 1-.83 1.5-.5l14 8.5-14 8.5c-.5.33-1.5.33-1.5-.5z" opacity="0.7"/></svg>
-        <div>
-          <span class="play-badge-sub">قريباً على</span>
-          Google Play
-        </div>
-      </div>
+    <a href="#beta-modal" class="home-beta__playbadge">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" class="cx-mirror-rtl" aria-hidden="true"><path d="M3 20.5v-17c0-.83 1-.83 1.5-.5l14 8.5-14 8.5c-.5.33-1.5.33-1.5-.5z" opacity="0.7"/></svg>
+      <span>
+        <span class="home-beta__playbadge-sub">قريباً على</span>
+        Google Play
+      </span>
     </a>
-    <p style="margin-top: 20px; font-size: 0.8rem; color: var(--gray-500);">
-      للاستفسارات: <a href="mailto:Omarahmadmzory@gmail.com">Omarahmadmzory@gmail.com</a>
+    <p class="cx-small home-beta__note">
+      للاستفسارات: <a href="mailto:Omarahmadmzory@gmail.com" class="cx-link">Omarahmadmzory@gmail.com</a>
     </p>
   </div>
 </section>

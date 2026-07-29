@@ -20,7 +20,7 @@
   position:sticky;
   top:0;
   z-index:100;
-  background:rgba(15,20,36,.97);
+  background:color-mix(in srgb, var(--cx-ink-900) 97%, transparent); /* S005: was hardcoded rgba(15,20,36,.97) navy literal */
   backdrop-filter:blur(8px);
   -webkit-backdrop-filter:blur(8px);
   border-bottom:var(--cx-border-width) solid var(--cx-color-on-dark-border);
@@ -126,7 +126,7 @@
   position:absolute;
   inset-inline:0;
   top:100%;
-  background:rgba(15,20,36,.99);
+  background:color-mix(in srgb, var(--cx-ink-900) 99%, transparent); /* S005: was hardcoded rgba(15,20,36,.99) navy literal */
   backdrop-filter:blur(12px);
   -webkit-backdrop-filter:blur(12px);
   border-bottom:var(--cx-border-width) solid var(--cx-color-on-dark-border);

@@ -4,6 +4,34 @@ Rolling execution history for `calceditor-site` `S###` commands. Prepend new ent
 
 ---
 
+# Site Session Log - Command S006
+**Command:** `S006 - SITE_SHARED_FOUNDATION_VERIFICATION_AND_OWNER_APPROVAL`
+**Date:** 2026-07-29
+**Result:** CONDITIONAL_GO — final Phase 1 shared-foundation verification technically passed; Owner visual approval not yet requested/granted
+**Production files modified:** `privacy-policy/index.html`, `privacy-policy/index_ar.html` — exactly one line each (`<body>` → `<body class="cx-shell">`), confirmed via `git diff` (2 insertions/2 deletions total, nothing else).
+**Privacy Policy repair:** Confirmed the defect exactly as described (Home pages already had `cx-shell`, both Privacy Policy pages lacked it, both already loaded the required CSS — no CSS/JS change needed). Applied the class addition only. Exact-diff comparison proves zero change to text, headings, dates, links, metadata, or legal meaning.
+**Four-page design-system activation:** All four pages now render `body` background `#121212` (dark) / `#fafafa` (light) — neutral, matching S004B tokens. Header/mobile-panel/footer backgrounds identical (`#121212`) across all four pages. Arabic font stack and 1.85 line-height now activate on the Arabic Privacy Policy page for the first time (previously inert).
+**Light/dark:** Both themes verified neutral on all four pages; theme toggle correctly synchronizes both class systems (`dark-theme cx-dark` / `light-theme cx-light`) — confirmed via the real toggle button, not a partial manual class test (an initial test using only the new class produced a false low-contrast reading; corrected and re-verified with the real toggle).
+**English/Arabic + RTL/LTR:** Correct `lang`/`dir` on all four pages; language switching confirmed equivalent-page (Privacy↔Privacy, Home↔Home), no redirect-to-Home regression.
+**Navigation:** Shared header active on all four pages, old tab nav absent (grep-confirmed), active-page state correct per page, all nav/footer links resolve to real routes, mobile menu opens/closes/Escapes correctly on all four pages including the newly-repaired Privacy Policy pages.
+**Footer:** Present and structurally consistent on all four pages, neutral background, no invented links.
+**Responsive:** Zero horizontal overflow across 320–1920px — full 9-viewport sweep on both Privacy Policy pages, extreme-viewport spot-check on both Home pages (full sweep already established in S005, files unchanged since).
+**Accessibility:** Single `<main>`/`<h1>` per page, no duplicate IDs, valid ARIA references, no positive-tabindex traps, decorative SVGs hidden, skip link resolves correctly on all four pages.
+**Contrast:** All measured pairings pass AA (most AAA); tightest is footer/body meta text in light mode at 4.56:1 (passes). No AA failure found.
+**Console/network:** Zero console errors, zero external requests, only localhost/same-origin traffic across all four pages.
+**Deferred (non-blocking):** `assets/site.css`'s `.summary-box`/`.page` legacy tokens still carry a faint residual purple tint on the Privacy Policy pages (contrast unaffected, cosmetic only) — candidate for a future dedicated cleanup command, out of S006's scope. Real app-screenshot sourcing remains an open Owner decision (pre-existing).
+**Confirmation:** No file beyond the two authorized Privacy Policy lines and the three documentation files changed; Home pages, CSS, JS, `CNAME` all unchanged; no new page/calculator/tool; `docs/roadmap` not created; S007/Phase 2 not started. **Owner visual approval has not been assumed or granted — this command recommends readiness only.**
+
+---
+
+# Site Session Log - Command S005
+**Command:** `S005 - SITE_HOME_PAGE_REBUILD`
+**Date:** 2026-07-29
+**Result:** HOME_PAGE_REBUILD_IMPLEMENTED (CONDITIONAL_GO — Owner review required)
+Created `assets/css/site-home.css`. Modified `index.html`, `index_ar.html` (Home content rebuilt onto S003/S004 components; `<body class="cx-shell">` added), `assets/css/site-shell.css` (header/mobile-panel background fix, scoped exactly to the two background declarations). Skills used: `frontend-design` (Home structure/hierarchy — neutral-background sections throughout, one accent word in the H1, product-placeholder section using the S003 media-frame component, no dominant colored block anywhere); local self-review in place of the `review` Skill. Sections: hero, trust strip, product-presentation placeholder (new — no verified screenshot asset exists), features (6 cards, all existing copy preserved verbatim), privacy/trust summary, beta CTA — footer unchanged from S004. Color restraint: every section background is a neutral `--cx-color-bg`/`--cx-color-surface-subtle` token; the copper accent appears only on the primary CTA, one hero headline word, and links. Fixed the S004B residual: `.cx-site-header`/`.cx-mobile-panel` hardcoded `rgba(15,20,36,...)` replaced with `color-mix(in srgb, var(--cx-ink-900) ..%, transparent)`, re-verified live at 18.73:1 nav-text contrast. Found and fixed a significant latent bug during verification: production `<body>` never carried the `cx-shell` class introduced in S003, so the page background was still rendering from the old `assets/site.css` token (`#13111c`, blue-tinted) underneath all the new neutral components — added the class to both Home pages (out of scope for the two Privacy Policy pages, flagged as a deferred finding). Re-verified live post-fix: body background now `#121212`/`#fafafa` (neutral) in both themes on both languages. Bilingual parity: identical section structure/class sequence and href set (language-appropriate targets only) confirmed between `index.html` and `index_ar.html`. Responsive: no overflow at 320–1920px on either language, including with the mobile menu open. Removed two avoidable inline `style="background:..."` attributes in favor of a `.home-surface-subtle` class. Confirmed: no new content page, no calculator/tool, no Privacy Policy change, `assets/site.js` and `assets/css/site-design-system.css` unchanged. Owner review required before S006.
+
+---
+
 # Site Session Log - Command S004B
 **Command:** `S004B - SITE_COLOR_SYSTEM_REVISION`
 **Date:** 2026-07-29

@@ -1,0 +1,90 @@
+/*
+  CalcEditor Home Page — Presentation Rules (S005)
+  ---------------------------------------------------
+  Home-specific layout only. Reuses S003 tokens/components
+  (assets/css/site-design-system.css) and the S004/S004B shell
+  (assets/css/site-shell.css) without redefining either. Namespaced
+  `home-` to stay distinct from the reusable `cx-` system.
+
+  Color restraint (S004B / Owner direction): every section below uses
+  only the neutral --cx-color-bg / --cx-color-surface-subtle tokens as
+  backgrounds — no section is a dominant colored or gradient block. The
+  copper/burnt-orange accent appears in exactly a few deliberate spots:
+  the primary CTA button (reused from S003, unstyled here), one
+  highlighted word in the hero headline, and link/badge-icon accents —
+  never as a background.
+*/
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.home-hero{padding-top:var(--cx-space-9)}
+.home-hero__inner{max-width:var(--cx-reading-max);margin-inline:auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:var(--cx-space-4)}
+.home-hero__heading{margin:0}
+.home-accent-word{color:var(--cx-color-accent)} /* the hero's one deliberate color moment besides the CTA */
+.home-hero__tagline{margin:0}
+.home-hero__desc{margin:0;color:var(--cx-color-text-secondary)}
+.home-hero__actions{justify-content:center;margin-top:var(--cx-space-2)}
+
+/* =========================================================
+   TRUST STRIP
+   ========================================================= */
+.home-trust{border-block:var(--cx-border-width) solid var(--cx-color-border);background:var(--cx-color-surface-subtle)}
+.home-trust__list{display:flex;flex-wrap:wrap;justify-content:center;gap:var(--cx-space-2) var(--cx-space-6);padding-block:var(--cx-space-4)}
+.home-trust__item{display:inline-flex;align-items:center;gap:var(--cx-space-2);font-size:var(--cx-text-xs);font-weight:var(--cx-weight-semibold);color:var(--cx-color-text-secondary)}
+.home-trust__item svg{flex-shrink:0;color:var(--cx-color-text-muted)}
+
+/* =========================================================
+   PRODUCT PRESENTATION
+   ========================================================= */
+.home-product{padding-block:var(--cx-space-8)}
+.home-product__frame{max-width:840px;margin-inline:auto}
+
+/* Alternating neutral surface for section rhythm — never a color/gradient */
+.home-surface-subtle{background:var(--cx-color-surface-subtle)}
+
+/* =========================================================
+   FEATURES
+   ========================================================= */
+.home-features__intro{max-width:var(--cx-reading-max);margin-inline:auto;text-align:center;margin-bottom:var(--cx-space-7)}
+.home-features__grid{margin-top:0}
+
+/* =========================================================
+   PRIVACY / TRUST SUMMARY
+   ========================================================= */
+.home-privacy{text-align:center}
+.home-privacy__chips{justify-content:center;margin-top:var(--cx-space-5)}
+.home-privacy__more{margin-top:var(--cx-space-5)}
+
+/* =========================================================
+   BETA CTA
+   ========================================================= */
+.home-beta{text-align:center}
+.home-beta__playbadge{
+  display:inline-flex;align-items:center;gap:var(--cx-space-3);
+  margin-top:var(--cx-space-3);
+  padding:var(--cx-space-3) var(--cx-space-5);
+  border-radius:var(--cx-radius-md);
+  border:var(--cx-border-width) solid var(--cx-color-border-strong);
+  background:var(--cx-color-surface);
+  color:var(--cx-color-text);
+  text-decoration:none;
+  font-weight:var(--cx-weight-semibold);
+  transition:border-color var(--cx-duration-base) var(--cx-ease-standard),transform var(--cx-duration-fast) var(--cx-ease-out);
+}
+.home-beta__playbadge:hover{border-color:var(--cx-color-accent);text-decoration:none;transform:translateY(-1px)}
+.home-beta__playbadge-sub{display:block;font-size:var(--cx-text-xs);font-weight:var(--cx-weight-regular);color:var(--cx-color-text-muted)}
+.home-beta__note{margin-top:var(--cx-space-4)}
+
+/* =========================================================
+   RESPONSIVE
+   ---------------------------------------------------------
+   Fluid tokens already carry most of the responsive load; only the
+   trust-strip gap and hero top padding need a small floor at narrow
+   widths to avoid feeling cramped-then-empty.
+   ========================================================= */
+@media (max-width:640px){
+  .home-hero{padding-top:var(--cx-space-7)}
+  .home-trust__list{gap:var(--cx-space-2) var(--cx-space-4)}
+  .home-hero__actions{flex-direction:column;align-items:stretch;width:100%;max-width:320px;margin-inline:auto}
+}

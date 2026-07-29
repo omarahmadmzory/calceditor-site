@@ -8,10 +8,10 @@
 
 | Field | Value |
 |---|---|
-| Latest completed | S004 - SITE_SHARED_HEADER_NAVIGATION_AND_FOOTER |
-| Current | OWNER_REVIEW_OF_SHARED_SITE_SHELL |
-| Status | SHARED_SITE_SHELL_IMPLEMENTED |
-| Next | S005 - SITE_HOME_PAGE_REBUILD |
+| Latest completed | S006 - SITE_SHARED_FOUNDATION_VERIFICATION_AND_OWNER_APPROVAL |
+| Current | OWNER_PHASE_1_APPROVAL_DECISION |
+| Status | AWAITING_OWNER_APPROVAL |
+| Next | S007 - SITE_SUPPORT_CONTACT_PAGE |
 
 This table is a fixed-size snapshot, not a growing log (`S-LOG-1`). Rolling command history lives in `docs/SITE_AGENT_SESSION_LOG.md` only.
 
