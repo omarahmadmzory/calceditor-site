@@ -8,10 +8,10 @@
 
 | Field | Value |
 |---|---|
-| Latest completed | S006 - SITE_SHARED_FOUNDATION_VERIFICATION_AND_OWNER_APPROVAL |
-| Current | OWNER_PHASE_1_APPROVAL_DECISION |
-| Status | AWAITING_OWNER_APPROVAL |
-| Next | S007 - SITE_SUPPORT_CONTACT_PAGE |
+| Latest completed | S007 - SITE_SUPPORT_CONTACT_PAGE |
+| Current | OWNER_REVIEW_OF_SUPPORT_PAGE |
+| Status | CONDITIONAL_GO |
+| Next | S008 - PENDING_OWNER_DIRECTION |
 
 This table is a fixed-size snapshot, not a growing log (`S-LOG-1`). Rolling command history lives in `docs/SITE_AGENT_SESSION_LOG.md` only.
 

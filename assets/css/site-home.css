@@ -77,6 +77,39 @@
 .home-beta__note{margin-top:var(--cx-space-4)}
 
 /* =========================================================
+   BETA MODAL (color override only)
+   ---------------------------------------------------------
+   The modal's structure and show/hide mechanism (`.modal`, `:target`,
+   `.modal-close` layout) stay defined in assets/site.css — untouched,
+   since it is shared plumbing, not a color choice. Only the legacy
+   navy/violet color values are overridden here, scoped to #beta-modal
+   so nothing else in assets/site.css is affected. This was flagged as
+   a known residual in the S005 audit and is fixed now per Owner report.
+   ========================================================= */
+#beta-modal{background:color-mix(in srgb, var(--cx-ink-950) 85%, transparent)}
+#beta-modal .modal-content{
+  background:var(--cx-color-surface);
+  border-color:var(--cx-color-border);
+  color:var(--cx-color-text);
+  box-shadow:var(--cx-shadow-elevated);
+}
+#beta-modal .modal-content h3{color:var(--cx-color-text)}
+#beta-modal .modal-close{
+  background:var(--cx-color-brand);
+  color:#fff!important; /* matches the specificity of the legacy !important rule it overrides */
+}
+#beta-modal .modal-close:hover{background:var(--cx-color-brand-hover)}
+#beta-modal .modal-info{
+  background:var(--cx-color-surface-subtle);
+  border:var(--cx-border-width) solid var(--cx-color-border);
+  border-radius:var(--cx-radius-sm);
+  padding:var(--cx-space-3);
+  font-size:var(--cx-text-sm);
+  text-align:start;
+}
+#beta-modal .modal-info a{color:var(--cx-color-accent)}
+
+/* =========================================================
    RESPONSIVE
    ---------------------------------------------------------
    Fluid tokens already carry most of the responsive load; only the

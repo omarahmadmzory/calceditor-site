@@ -34,13 +34,13 @@
 
   const labels={
     en:{
-      home:'Home',features:'Features',privacyPolicy:'Privacy Policy',contact:'Contact',
+      home:'Home',features:'Features',privacyPolicy:'Privacy Policy',support:'Support',contact:'Contact',
       switchLanguage:'العربية',switchLanguageFull:'Switch to Arabic',
       theme:'Toggle theme',cta:'Get Early Access',menu:'Menu',closeMenu:'Close menu',
       primaryNav:'Primary'
     },
     ar:{
-      home:'الرئيسية',features:'الميزات',privacyPolicy:'سياسة الخصوصية',contact:'تواصل معنا',
+      home:'الرئيسية',features:'الميزات',privacyPolicy:'سياسة الخصوصية',support:'الدعم',contact:'تواصل معنا',
       switchLanguage:'English',switchLanguageFull:'التبديل إلى الإنجليزية',
       theme:'تبديل السمة',cta:'طلب الوصول المبكر',menu:'القائمة',closeMenu:'إغلاق القائمة',
       primaryNav:'التنقل الرئيسي'
@@ -55,10 +55,11 @@
     const t=labels[lang]||labels.en;
     const homeHref=sitePath(lang==='ar'?'index_ar.html':'index.html');
     const privacyPolicyHref=sitePath(lang==='ar'?'privacy-policy/index_ar.html':'privacy-policy/index.html');
+    const supportHref=sitePath(lang==='ar'?'support/index_ar.html':'support/index.html');
     const featuresHref=page==='home'?'#features':`${homeHref}#features`;
     const ctaHref=page==='home'?'#beta-modal':`${homeHref}#beta-modal`;
     const languageHref=lang==='ar'?'index.html?lang=en':'index_ar.html?lang=ar';
-    return {t,homeHref,privacyPolicyHref,featuresHref,ctaHref,languageHref};
+    return {t,homeHref,privacyPolicyHref,supportHref,featuresHref,ctaHref,languageHref};
   }
 
   function navLinksMarkup(r,variant){
@@ -69,7 +70,8 @@
       <a href="${r.homeHref}" class="${linkClass}"${current(page==='home')}>${t.home}</a>
       <a href="${r.featuresHref}" class="${linkClass}">${t.features}</a>
       <a href="${r.privacyPolicyHref}" class="${linkClass}"${current(page==='privacy')}>${t.privacyPolicy}</a>
-      <a href="mailto:Omarahmadmzory@gmail.com" class="${linkClass}">${t.contact}</a>`;
+      <a href="${r.supportHref}" class="${linkClass}"${current(page==='support')}>${t.support}</a>
+      <a href="mailto:calceditorapp@gmail.com" class="${linkClass}">${t.contact}</a>`;
   }
 
   function renderHeader(){
@@ -127,7 +129,8 @@
         <div class="cx-site-footer__links">
           <a href="${r.homeHref}">${t.home}</a>
           <a href="${r.privacyPolicyHref}">${t.privacyPolicy}</a>
-          <a href="mailto:Omarahmadmzory@gmail.com">${t.contact}</a>
+          <a href="${r.supportHref}">${t.support}</a>
+          <a href="mailto:calceditorapp@gmail.com">${t.contact}</a>
         </div>
       </div>`;
   }

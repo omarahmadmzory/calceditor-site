@@ -17,7 +17,7 @@
 
 | Field | Value | Verified against |
 |---|---|---|
-| Public support / contact (user-facing) | `Omarahmadmzory@gmail.com` | Live `mailto:` links in `index.html`, `index_ar.html`, `privacy-policy/index.html`, `privacy-policy/index_ar.html` |
+| Public support / contact (user-facing) | `calceditorapp@gmail.com` | Live `mailto:` links in `index.html`, `index_ar.html`, `privacy-policy/index.html`, `privacy-policy/index_ar.html`, `support/index.html`, `support/index_ar.html` (updated S007; previously `Omarahmadmzory@gmail.com`) |
 
 This is the only contact address that belongs on the website. Any other account credential (e.g. an app-store developer login) is out of Site scope by definition and is not recorded in this file — see `S-SRC-1` and the Exclusions section below.
 

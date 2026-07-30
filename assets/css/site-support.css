@@ -1,0 +1,75 @@
+/*
+  CalcEditor Support Page — Presentation Rules (S007)
+  ---------------------------------------------------
+  Support-page-specific layout only. Reuses S003 tokens/components
+  (assets/css/site-design-system.css) and the S004/S004B shell
+  (assets/css/site-shell.css) without redefining either. Namespaced
+  `support-` to stay distinct from the `cx-` system and from `home-`
+  (assets/css/site-home.css).
+
+  Color restraint: no navy, no blue, no purple, no WhatsApp-brand-green
+  surface anywhere in this file. The WhatsApp icon is rendered in the
+  same neutral `currentColor` treatment as every other icon on the
+  site; the "Coming soon" state is communicated by a muted, dashed
+  card style, not by color alone.
+*/
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+.support-hero__inner{max-width:var(--cx-reading-max);margin-inline:auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:var(--cx-space-4)}
+.support-hero__desc{margin:0;color:var(--cx-color-text-secondary)}
+
+/* Alternating neutral surface for section rhythm — never a color/gradient */
+.support-surface-subtle{background:var(--cx-color-surface-subtle)}
+
+/* =========================================================
+   CONTACT CARDS
+   ========================================================= */
+.support-cards{align-items:stretch}
+.support-card{display:flex;flex-direction:column;gap:var(--cx-space-3)}
+.support-card__value{
+  font-size:var(--cx-text-lg);
+  font-weight:var(--cx-weight-semibold);
+  word-break:break-word;
+}
+.support-card__value--static{color:var(--cx-color-text)}
+
+/* "Coming soon" (WhatsApp) card: muted, dashed border communicates
+   "reserved but not active" without relying on color alone. */
+.support-card--pending{
+  border-style:dashed;
+  background:var(--cx-color-surface-subtle);
+}
+.support-card--pending .cx-card__icon{
+  background:var(--cx-color-disabled-bg);
+  color:var(--cx-color-text-muted);
+}
+.support-card__status-row{display:flex;align-items:center;gap:var(--cx-space-2)}
+
+/* =========================================================
+   GUIDANCE
+   ========================================================= */
+.support-guidance{max-width:var(--cx-reading-max);margin-inline:auto}
+.support-guidance__list{
+  list-style:none;
+  margin:var(--cx-space-5) 0 0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  gap:var(--cx-space-3);
+}
+.support-guidance__list li{
+  display:flex;
+  align-items:flex-start;
+  gap:var(--cx-space-3);
+  padding-block:var(--cx-space-2);
+  border-bottom:var(--cx-border-width) solid var(--cx-color-border);
+  color:var(--cx-color-text-secondary);
+}
+.support-guidance__list li:last-child{border-bottom:0}
+.support-guidance__list svg{flex-shrink:0;margin-top:2px;color:var(--cx-color-accent)}
+
+@media (max-width:640px){
+  .support-hero{padding-top:var(--cx-space-7)}
+}

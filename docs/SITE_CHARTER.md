@@ -91,7 +91,7 @@ Currently minimal: `index.html` carries a single `<meta name="description">` tag
 
 ## 12. Privacy / Legal Ownership
 
-The Privacy Policy is owned and hosted by this repository at `privacy-policy/index.html` (English) and `privacy-policy/index_ar.html` (Arabic), with contact address `Omarahmadmzory@gmail.com` (verified live in both pages). Legal/platform governance detail lives in `docs/SITE_ROADMAP_G_LEGAL_AND_PLATFORM.md`, not in this Charter.
+The Privacy Policy is owned and hosted by this repository at `privacy-policy/index.html` (English) and `privacy-policy/index_ar.html` (Arabic), with contact address `calceditorapp@gmail.com` (verified live in both pages; updated S007). Legal/platform governance detail lives in `docs/SITE_ROADMAP_G_LEGAL_AND_PLATFORM.md`, not in this Charter.
 
 ---
 
