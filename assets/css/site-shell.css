@@ -77,10 +77,13 @@
 /* Active-page state: bracket-frame signature carried from S003's eyebrow
    treatment, re-used here as the "current page" marker. */
 .cx-site-nav__link[aria-current="page"]{color:var(--cx-color-on-dark);font-weight:var(--cx-weight-semibold)}
+/* Bug fix (Owner report): "[" and "]" are Unicode-mirrored characters —
+   browsers already flip their glyph automatically inside RTL text. The
+   previous [dir="rtl"] rule below manually swapped the content too,
+   which double-mirrored and rendered the brackets backwards. Same
+   content in both directions now; RTL mirroring is handled natively. */
 .cx-site-nav__link[aria-current="page"]::before{content:"[ ";opacity:.5}
 .cx-site-nav__link[aria-current="page"]::after{content:" ]";opacity:.5}
-[dir="rtl"] .cx-site-nav__link[aria-current="page"]::before{content:"] "}
-[dir="rtl"] .cx-site-nav__link[aria-current="page"]::after{content:" ["}
 
 /* Actions cluster (lang switch, theme toggle, CTA, hamburger) */
 .cx-site-header__actions{flex:0 0 auto;display:flex;align-items:center;gap:var(--cx-space-3)}

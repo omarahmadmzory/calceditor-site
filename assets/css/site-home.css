@@ -94,6 +94,15 @@
   box-shadow:var(--cx-shadow-elevated);
 }
 #beta-modal .modal-content h3{color:var(--cx-color-text)}
+/* Bug fix (Owner report, light theme): assets/site.css's legacy
+   `.modal-content p{color:rgba(255,255,255,.7)}` is translucent white,
+   readable only on the old dark modal surface — nearly invisible once
+   the surface became light. Overridden here with the theme-reactive
+   text token so both paragraphs (intro + .modal-info) stay readable in
+   both themes. Specificity (id+class+element) intentionally beats the
+   legacy class+element rule without needing !important. */
+#beta-modal .modal-content p{color:var(--cx-color-text-secondary)}
+#beta-modal .modal-info strong{color:var(--cx-color-text)}
 #beta-modal .modal-close{
   background:var(--cx-color-brand);
   color:#fff!important; /* matches the specificity of the legacy !important rule it overrides */

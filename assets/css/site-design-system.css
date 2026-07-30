@@ -349,13 +349,14 @@
 [dir="rtl"] .cx-eyebrow{letter-spacing:0;text-transform:none}
 /* Bracket-frame signature: a thin, oversized grouping glyph used as a
    structural frame — echoes mathematical grouping notation. Purely
-   typographic (no image asset), mirrors correctly under RTL because the
-   opening/closing glyphs are swapped via the [dir] selector rather than
-   transformed. */
+   typographic (no image asset). "[" and "]" are Unicode-mirrored
+   characters, so browsers already flip their glyph automatically
+   inside RTL text — the same content string is used in both
+   directions; a manual [dir="rtl"] swap here previously double-
+   mirrored the glyphs and rendered them backwards (Owner-reported bug,
+   fixed). */
 .cx-eyebrow--bracketed::before{content:"[ ";font-weight:var(--cx-weight-regular);opacity:.55}
 .cx-eyebrow--bracketed::after{content:" ]";font-weight:var(--cx-weight-regular);opacity:.55}
-[dir="rtl"] .cx-eyebrow--bracketed::before{content:"] "}
-[dir="rtl"] .cx-eyebrow--bracketed::after{content:" ["}
 
 .cx-display{
   font-size:var(--cx-text-display);
